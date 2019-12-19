@@ -1,0 +1,26 @@
+﻿<Window x:Class="WPFCLEAN.Registracija"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFCLEAN"
+        mc:Ignorable="d"
+        Title="Registracija" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="Otkazi" Content="Otkaži" FontSize="50" Margin="20" Click="Otkazi_Click"/>
+            <Button Name="Potvrdi" Content="Potvrdi" FontSize="50" Margin="20" Click="Potvrdi_Click"/>
+        </StackPanel>
+
+        <UniformGrid Columns="2">
+            <Label Content="Username:" FontSize="45" Margin="30 0 0 0"/>
+            <TextBox Name="txtusername" FontSize="45" Margin="0 0 30 0"/>
+            <Label Content="Sifra:" FontSize="45" Margin="30 0 0 0"/>
+            <TextBox Name="txtsifra" FontSize="45" Margin="0 0 30 0"/>
+            <Label Content="Tip:" FontSize="45" Margin="30 0 0 0"/>
+            <TextBox Name="txttip" FontSize="45" Margin="0 0 30 0"/>
+            <Label Content="Ime i Prezime:" FontSize="45" Margin="30 0 0 0"/>
+            <TextBox Name="txtimeprezime" Margin="0 0 30 0" FontSize="45"/>
+        </UniformGrid>
+    </DockPanel>
+</Window>
