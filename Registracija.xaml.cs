@@ -40,7 +40,7 @@ namespace WPFCLEAN
             }
             else
             {
-                if (txttip.Text == "Sef" || txttip.Text == "Radnik")
+                if (txttip.Text == "Sef" || txttip.Text == "Radnik")       //Tip treba da se makne.
                 {
                     if (DataContext is ObservableCollection<Nalog> Osobeplus)
                     {
@@ -57,7 +57,7 @@ namespace WPFCLEAN
                             Nalog novaosoba = new Nalog();
                             novaosoba.username = txtusername.Text;
                             novaosoba.password = txtsifra.Text;
-                            novaosoba.prava = txttip.Text;
+                            novaosoba.prava = txttip.Text;          //Tip treba da se makne.
                             novaosoba.imePrezime = txtimeprezime.Text;
 
                             Osobeplus.Add(novaosoba);
@@ -65,7 +65,7 @@ namespace WPFCLEAN
                             this.Close();
                         }
                         else
-                            MessageBox.Show("Korisničko ime je zauzeto!");
+                            MessageBox.Show("Korisničko ime je zazeto!");
                     }
                 }
                 else
@@ -76,24 +76,7 @@ namespace WPFCLEAN
         private bool Provera_Polja()
         {
             return string.IsNullOrEmpty(txtusername.Text) || string.IsNullOrEmpty(txtsifra.Text) || string.IsNullOrEmpty(txtimeprezime.Text) ||
-                string.IsNullOrEmpty(txttip.Text);
+                string.IsNullOrEmpty(txttip.Text);          //Tip treba da se makne.
         }
-        /*private bool Proveri()
-        {
-            bool potvrda = true;
-            if (DataContext is ObservableCollection<Nalog> Osobeplus)
-            {
-                foreach(var osoba in Osobeplus)
-                {
-                    if (osoba.username == txtusername.Text)
-                        return potvrda;
-                    else
-                    {
-                        potvrda = false;
-                        return potvrda;
-                    }
-                }
-            }
-        }*/
     }
 }

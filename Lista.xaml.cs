@@ -20,7 +20,7 @@ namespace WPFCLEAN
     /// </summary>
     public partial class Lista : Window
     {
-        ObservableCollection<Ulica> poslovi = new ObservableCollection<Ulica>();
+        ObservableCollection<Posao> poslovi = new ObservableCollection<Posao>();
         public Lista()
         {
             InitializeComponent();

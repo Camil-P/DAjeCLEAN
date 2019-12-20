@@ -7,7 +7,7 @@
       <Diagram DiagramId="ea149c440b5245738a41a7948b7eb24f" Name="Diagram1">
         <EntityTypeShape EntityType="DataBaseModel.Nalog" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseModel.Posao" Width="1.5" PointX="3.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataBaseModel.Ulica" Width="1.5" PointX="0.875" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Ulica" Width="1.5" PointX="0.875" PointY="3.375" IsExpanded="true" />
         <AssociationConnector Association="DataBaseModel.FK_Poslovi_Nalozi" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseModel.FK_Poslovi_Ulice" ManuallyRouted="false" />
       </Diagram>
