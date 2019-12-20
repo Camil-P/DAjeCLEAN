@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:cal="http://www.caliburnproject.org" x:Class="WPFCLEAN.MainWindow"
         mc:Ignorable="d"
-        Title="DAjeCLEAN" Height="1000" Width="800" WindowStartupLocation="CenterScreen" Topmost="True" SizeToContent="Width" Foreground="{x:Null}">
+        Title="DAjeCLEAN" Height="750" Width="700" WindowStartupLocation="CenterScreen" Topmost="True" SizeToContent="Width" Foreground="{x:Null}">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -62,7 +62,7 @@
 
             </Button>
 
-            <Button x:Name="logoutBtn" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="156" Canvas.Left="639" Canvas.Top="17" Foreground="{x:Null}" BorderBrush="{x:Null}" >
+            <Button x:Name="logoutBtn" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="156" Canvas.Left="639" Canvas.Top="17" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="logoutBtn_Click" >
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/logoutBTN.png"/>
                 </Button.Background>

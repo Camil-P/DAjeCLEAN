@@ -44,15 +44,28 @@ namespace WPFCLEAN
                 {
                     if (DataContext is ObservableCollection<Nalog> Osobeplus)
                     {
-                        Nalog novaosoba = new Nalog();
-                        novaosoba.username = txtusername.Text;
-                        novaosoba.password = txtsifra.Text;
-                        novaosoba.prava = txttip.Text;
-                        novaosoba.imePrezime = txtimeprezime.Text;
+                        bool provera = false;
+                        foreach(var osoba in Osobeplus)
+                        {
+                            if(osoba.username == txtusername.Text)
+                            {
+                                provera = true;
+                            }
+                        }
+                        if (!provera)
+                        {
+                            Nalog novaosoba = new Nalog();
+                            novaosoba.username = txtusername.Text;
+                            novaosoba.password = txtsifra.Text;
+                            novaosoba.prava = txttip.Text;
+                            novaosoba.imePrezime = txtimeprezime.Text;
 
-                        Osobeplus.Add(novaosoba);
-                        DataProvider.DodajNalog(novaosoba);
-                        this.Close();
+                            Osobeplus.Add(novaosoba);
+                            DataProvider.DodajNalog(novaosoba);
+                            this.Close();
+                        }
+                        else
+                            MessageBox.Show("Korisničko ime je zauzeto!");
                     }
                 }
                 else
@@ -65,5 +78,22 @@ namespace WPFCLEAN
             return string.IsNullOrEmpty(txtusername.Text) || string.IsNullOrEmpty(txtsifra.Text) || string.IsNullOrEmpty(txtimeprezime.Text) ||
                 string.IsNullOrEmpty(txttip.Text);
         }
+        /*private bool Proveri()
+        {
+            bool potvrda = true;
+            if (DataContext is ObservableCollection<Nalog> Osobeplus)
+            {
+                foreach(var osoba in Osobeplus)
+                {
+                    if (osoba.username == txtusername.Text)
+                        return potvrda;
+                    else
+                    {
+                        potvrda = false;
+                        return potvrda;
+                    }
+                }
+            }
+        }*/
     }
 }

@@ -30,5 +30,14 @@ namespace WPFCLEAN
             Lista ProzorListe = new Lista();
             ProzorListe.Visibility = Visibility.Visible;
         }
+
+        #region Logout
+        private void logoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Visibility = Visibility.Visible;
+            this.Close();
+        }
+        #endregion
     }
 }

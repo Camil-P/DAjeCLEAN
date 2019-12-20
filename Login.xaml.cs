@@ -66,6 +66,7 @@ namespace WPFCLEAN
                             Glavniprozor.Visibility = Visibility.Visible;
 
                             this.Close();
+                            
                         }
                         else
                         {
