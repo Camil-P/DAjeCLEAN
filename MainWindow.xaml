@@ -50,7 +50,7 @@
                     <ImageBrush ImageSource="Resursi/notif.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="listaBtn" Style="{StaticResource MyButton}" Width="95" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="121" Canvas.Top="169" VerticalAlignment="Top">
+            <Button x:Name="listaBtn" Style="{StaticResource MyButton}" Width="95" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="121" Canvas.Top="169" VerticalAlignment="Top" Click="listaBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/List.png"/>
                 </Button.Background>

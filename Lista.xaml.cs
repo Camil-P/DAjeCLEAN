@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,25 +11,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WPFCLEAN
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Lista.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Lista : Window
     {
-        public MainWindow()
+        ObservableCollection<Ulica> poslovi = new ObservableCollection<Ulica>();
+        public Lista()
         {
             InitializeComponent();
-        }
 
-        private void listaBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Lista ProzorListe = new Lista();
-            ProzorListe.Visibility = Visibility.Visible;
+            dgcekiranja.ItemsSource = poslovi;
+            
         }
     }
 }

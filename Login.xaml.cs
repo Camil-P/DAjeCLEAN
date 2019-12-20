@@ -21,6 +21,7 @@ namespace WPFCLEAN
     public partial class Login : Window
     {
         private ObservableCollection<Nalog> osobe = new ObservableCollection<Nalog>();
+        public string Sifra { get; set; }
         public Login()
         {
             InitializeComponent();
@@ -33,12 +34,12 @@ namespace WPFCLEAN
 
         private bool PraznoPolje()
         {
-            return string.IsNullOrEmpty(txtSifra.Text);
+            return string.IsNullOrEmpty(txtSifra.Password);
         }
 
         private void OcistiLoz()
         {
-            txtSifra.Text = string.Empty;
+            txtSifra.Password = string.Empty;
         }
 
         private void cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -50,7 +51,7 @@ namespace WPFCLEAN
         {
             if (PraznoPolje())
             {
-                MessageBox.Show("Niste popunili sva polja");
+                MessageBox.Show("Polje za sifru je prazno!");
             }
             else
             {
@@ -58,7 +59,7 @@ namespace WPFCLEAN
                 {
                     if (korisnik.username == cb.Text)
                     {
-                        if (korisnik.password == txtSifra.Text)
+                        if (korisnik.password == txtSifra.Password)
                         {
                             MainWindow Glavniprozor = new MainWindow();
                             Glavniprozor.DataContext = korisnik;
