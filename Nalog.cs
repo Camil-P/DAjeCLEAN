@@ -17,15 +17,14 @@ namespace WPFCLEAN
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Nalog()
         {
-            this.Posaos = new HashSet<Posao>();
+            this.Porukas = new HashSet<Poruka>();
         }
     
         public string username { get; set; }
         public string password { get; set; }
-        public string prava { get; set; }
         public string imePrezime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Posao> Posaos { get; set; }
+        public virtual ICollection<Poruka> Porukas { get; set; }
     }
 }

@@ -25,8 +25,9 @@ namespace WPFCLEAN
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ArhiviraniPosao> ArhiviraniPosaos { get; set; }
+        public virtual DbSet<MoguciPosao> MoguciPosaos { get; set; }
         public virtual DbSet<Nalog> Nalogs { get; set; }
-        public virtual DbSet<Posao> Posaos { get; set; }
-        public virtual DbSet<Ulica> Ulicas { get; set; }
+        public virtual DbSet<Poruka> Porukas { get; set; }
     }
 }

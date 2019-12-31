@@ -21,7 +21,6 @@ namespace WPFCLEAN
     public partial class Login : Window
     {
         private ObservableCollection<Nalog> osobe = new ObservableCollection<Nalog>();
-        public string Sifra { get; set; }
         public Login()
         {
             InitializeComponent();
@@ -80,7 +79,7 @@ namespace WPFCLEAN
 
         private void Napuni()
         {
-            var trosobe = DataProvider.GetNalozi();
+            var trosobe = EFDataProvider.GetNalozi();
             foreach (Nalog trosoba in trosobe)
                 osobe.Add(trosoba);
         }

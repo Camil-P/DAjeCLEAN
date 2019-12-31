@@ -27,8 +27,8 @@ namespace WPFCLEAN
 
         private void listaBtn_Click(object sender, RoutedEventArgs e)
         {
-            Lista ProzorListe = new Lista();
-            ProzorListe.Visibility = Visibility.Visible;
+            OdlukaAPiTS ProzorOdluke = new OdlukaAPiTS();
+            ProzorOdluke.Visibility = Visibility.Visible;
         }
 
         #region Logout

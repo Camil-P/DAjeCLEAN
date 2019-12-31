@@ -5,16 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Nalog">
-          <Key>
-            <PropertyRef Name="username" />
-          </Key>
-          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="prava" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="imePrezime" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Posao">
+        <EntityType Name="ArhiviraniPosao">
           <Key>
             <PropertyRef Name="idPosla" />
           </Key>
@@ -23,53 +14,57 @@
           <Property Name="vreme" Type="time" Precision="0" Nullable="false" />
           <Property Name="ulicaIme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="datum" Type="date" Nullable="false" />
-          <Property Name="userRadnika" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Ulica">
+        <EntityType Name="MoguciPosao">
           <Key>
             <PropertyRef Name="ulica" />
+            <PropertyRef Name="tip" />
           </Key>
           <Property Name="ulica" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="povrsina" Type="float" />
-          <Property Name="planPranja" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="planp" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="tip" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Poslovi_Nalozi">
+        <EntityType Name="Nalog">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="imePrezime" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Poruka">
+          <Key>
+            <PropertyRef Name="idPoruke" />
+          </Key>
+          <Property Name="idPoruke" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userKorisnika" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poruka" Type="varchar(max)" Nullable="false" />
+          <Property Name="datumObjave" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_ArhiviraniPosao_MoguciPosao' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_ArhiviraniPosao_MoguciPosao" />-->
+        <Association Name="FK_Poruka_Nalog">
           <End Role="Nalog" Type="Self.Nalog" Multiplicity="1" />
-          <End Role="Posao" Type="Self.Posao" Multiplicity="*" />
+          <End Role="Poruka" Type="Self.Poruka" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nalog">
               <PropertyRef Name="username" />
             </Principal>
-            <Dependent Role="Posao">
-              <PropertyRef Name="userRadnika" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Poslovi_Ulice">
-          <End Role="Ulica" Type="Self.Ulica" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Posao" Type="Self.Posao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ulica">
-              <PropertyRef Name="ulica" />
-            </Principal>
-            <Dependent Role="Posao">
-              <PropertyRef Name="ulicaIme" />
+            <Dependent Role="Poruka">
+              <PropertyRef Name="userKorisnika" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DataBaseModelStoreContainer">
+          <EntitySet Name="ArhiviraniPosao" EntityType="Self.ArhiviraniPosao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MoguciPosao" EntityType="Self.MoguciPosao" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nalog" EntityType="Self.Nalog" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Posao" EntityType="Self.Posao" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Ulica" EntityType="Self.Ulica" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Poslovi_Nalozi" Association="Self.FK_Poslovi_Nalozi">
+          <EntitySet Name="Poruka" EntityType="Self.Poruka" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Poruka_Nalog" Association="Self.FK_Poruka_Nalog">
             <End Role="Nalog" EntitySet="Nalog" />
-            <End Role="Posao" EntitySet="Posao" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Poslovi_Ulice" Association="Self.FK_Poslovi_Ulice">
-            <End Role="Ulica" EntitySet="Ulica" />
-            <End Role="Posao" EntitySet="Posao" />
+            <End Role="Poruka" EntitySet="Poruka" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -77,17 +72,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Nalog">
-          <Key>
-            <PropertyRef Name="username" />
-          </Key>
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="prava" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="imePrezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Posaos" Relationship="Self.FK_Poslovi_Nalozi" FromRole="Nalog" ToRole="Posao" />
-        </EntityType>
-        <EntityType Name="Posao">
+        <EntityType Name="ArhiviraniPosao">
           <Key>
             <PropertyRef Name="idPosla" />
           </Key>
@@ -96,56 +81,56 @@
           <Property Name="vreme" Type="Time" Nullable="false" Precision="0" />
           <Property Name="ulicaIme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="userRadnika" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Nalog" Relationship="Self.FK_Poslovi_Nalozi" FromRole="Posao" ToRole="Nalog" />
-          <NavigationProperty Name="Ulica" Relationship="Self.FK_Poslovi_Ulice" FromRole="Posao" ToRole="Ulica" />
         </EntityType>
-        <EntityType Name="Ulica">
+        <EntityType Name="MoguciPosao">
           <Key>
-            <PropertyRef Name="ulica1" />
+            <PropertyRef Name="ulica" />
+            <PropertyRef Name="tip" />
           </Key>
-          <Property Name="ulica1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="povrsina" Type="Double" />
-          <Property Name="planPranja" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Posaos" Relationship="Self.FK_Poslovi_Ulice" FromRole="Ulica" ToRole="Posao" />
+          <Property Name="planp" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Poslovi_Nalozi">
+        <EntityType Name="Nalog">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imePrezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Porukas" Relationship="Self.FK_Poruka_Nalog" FromRole="Nalog" ToRole="Poruka" />
+        </EntityType>
+        <EntityType Name="Poruka">
+          <Key>
+            <PropertyRef Name="idPoruke" />
+          </Key>
+          <Property Name="idPoruke" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userKorisnika" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poruka1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datumObjave" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Nalog" Relationship="Self.FK_Poruka_Nalog" FromRole="Poruka" ToRole="Nalog" />
+        </EntityType>
+        <Association Name="FK_Poruka_Nalog">
           <End Role="Nalog" Type="Self.Nalog" Multiplicity="1" />
-          <End Role="Posao" Type="Self.Posao" Multiplicity="*" />
+          <End Role="Poruka" Type="Self.Poruka" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nalog">
               <PropertyRef Name="username" />
             </Principal>
-            <Dependent Role="Posao">
-              <PropertyRef Name="userRadnika" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Poslovi_Ulice">
-          <End Role="Ulica" Type="Self.Ulica" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Posao" Type="Self.Posao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ulica">
-              <PropertyRef Name="ulica1" />
-            </Principal>
-            <Dependent Role="Posao">
-              <PropertyRef Name="ulicaIme" />
+            <Dependent Role="Poruka">
+              <PropertyRef Name="userKorisnika" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArhiviraniPosaos" EntityType="Self.ArhiviraniPosao" />
+          <EntitySet Name="MoguciPosaos" EntityType="Self.MoguciPosao" />
           <EntitySet Name="Nalogs" EntityType="Self.Nalog" />
-          <EntitySet Name="Posaos" EntityType="Self.Posao" />
-          <EntitySet Name="Ulicas" EntityType="Self.Ulica" />
-          <AssociationSet Name="FK_Poslovi_Nalozi" Association="Self.FK_Poslovi_Nalozi">
+          <EntitySet Name="Porukas" EntityType="Self.Poruka" />
+          <AssociationSet Name="FK_Poruka_Nalog" Association="Self.FK_Poruka_Nalog">
             <End Role="Nalog" EntitySet="Nalogs" />
-            <End Role="Posao" EntitySet="Posaos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Poslovi_Ulice" Association="Self.FK_Poslovi_Ulice">
-            <End Role="Ulica" EntitySet="Ulicas" />
-            <End Role="Posao" EntitySet="Posaos" />
+            <End Role="Poruka" EntitySet="Porukas" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -154,34 +139,43 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DataBaseModelStoreContainer" CdmEntityContainer="DataBaseEntities">
-          <EntitySetMapping Name="Nalogs">
-            <EntityTypeMapping TypeName="DataBaseModel.Nalog">
-              <MappingFragment StoreEntitySet="Nalog">
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="prava" ColumnName="prava" />
-                <ScalarProperty Name="imePrezime" ColumnName="imePrezime" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Posaos">
-            <EntityTypeMapping TypeName="DataBaseModel.Posao">
-              <MappingFragment StoreEntitySet="Posao">
+          <EntitySetMapping Name="ArhiviraniPosaos">
+            <EntityTypeMapping TypeName="DataBaseModel.ArhiviraniPosao">
+              <MappingFragment StoreEntitySet="ArhiviraniPosao">
                 <ScalarProperty Name="idPosla" ColumnName="idPosla" />
                 <ScalarProperty Name="tip" ColumnName="tip" />
                 <ScalarProperty Name="vreme" ColumnName="vreme" />
                 <ScalarProperty Name="ulicaIme" ColumnName="ulicaIme" />
                 <ScalarProperty Name="datum" ColumnName="datum" />
-                <ScalarProperty Name="userRadnika" ColumnName="userRadnika" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Ulicas">
-            <EntityTypeMapping TypeName="DataBaseModel.Ulica">
-              <MappingFragment StoreEntitySet="Ulica">
-                <ScalarProperty Name="ulica1" ColumnName="ulica" />
+          <EntitySetMapping Name="MoguciPosaos">
+            <EntityTypeMapping TypeName="DataBaseModel.MoguciPosao">
+              <MappingFragment StoreEntitySet="MoguciPosao">
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
                 <ScalarProperty Name="povrsina" ColumnName="povrsina" />
-                <ScalarProperty Name="planPranja" ColumnName="planPranja" />
+                <ScalarProperty Name="planp" ColumnName="planp" />
+                <ScalarProperty Name="tip" ColumnName="tip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nalogs">
+            <EntityTypeMapping TypeName="DataBaseModel.Nalog">
+              <MappingFragment StoreEntitySet="Nalog">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="imePrezime" ColumnName="imePrezime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Porukas">
+            <EntityTypeMapping TypeName="DataBaseModel.Poruka">
+              <MappingFragment StoreEntitySet="Poruka">
+                <ScalarProperty Name="idPoruke" ColumnName="idPoruke" />
+                <ScalarProperty Name="userKorisnika" ColumnName="userKorisnika" />
+                <ScalarProperty Name="poruka1" ColumnName="poruka" />
+                <ScalarProperty Name="datumObjave" ColumnName="datumObjave" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WPFCLEAN
 {
-    class DataProvider
+    class EFDataProvider
     {
+
         static public void DodajNalog(Nalog nalog)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
@@ -33,71 +34,100 @@ namespace WPFCLEAN
                 Nalog tmp = cnt.Nalogs.Where(x => x.username == nalog.username).FirstOrDefault();
                 tmp.password = nalog.password;
                 tmp.imePrezime = nalog.imePrezime;
-                tmp.prava = nalog.prava;
                 tmp.username = nalog.username;
 
                 return cnt.SaveChanges();
             }
         }
-
-        static public void DodajPosao(Posao posao)
+        static public void DodajPoruku(Poruka poruka)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                cnt.Posaos.Add(posao);
+                cnt.Porukas.Add(poruka);
                 cnt.SaveChanges();
             }
         }
 
-        static public int IzbrisiPosao(Posao posao)
+        static public int IzbrisiPoruku(Poruka poruka)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                cnt.Posaos.Remove(posao);
+                cnt.Porukas.Remove(poruka);
                 return cnt.SaveChanges();
             }
         }
-        
-        static public int IzmeniPosao(Posao posao)
+
+        static public int IzmeniPoruku(Poruka poruka)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                Posao tmp = cnt.Posaos.Where(x => x.idPosla == posao.idPosla).FirstOrDefault();
+                Poruka tmp = cnt.Porukas.Where(x => x.idPoruke == poruka.idPoruke).FirstOrDefault();
+                tmp.userKorisnika = poruka.userKorisnika;
+                tmp.poruka1 = poruka.poruka1;
+                tmp.datumObjave = poruka.datumObjave;
+
+                return cnt.SaveChanges();
+            }
+        }
+
+        static public void DodajArhiviraniPosao(ArhiviraniPosao posao)
+        {
+            using (DataBaseEntities cnt = new DataBaseEntities())
+            {
+                cnt.ArhiviraniPosaos.Add(posao);
+                cnt.SaveChanges();
+            }
+        }
+
+        static public int IzbrisiArhiviraniPosao(ArhiviraniPosao posao)
+        {
+            using (DataBaseEntities cnt = new DataBaseEntities())
+            {
+                cnt.ArhiviraniPosaos.Remove(posao);
+                return cnt.SaveChanges();
+            }
+        }
+
+        static public int IzmeniArhiviraniPosao(ArhiviraniPosao posao)
+        {
+            using (DataBaseEntities cnt = new DataBaseEntities())
+            {
+                ArhiviraniPosao tmp = cnt.ArhiviraniPosaos.Where(x => x.idPosla == posao.idPosla).FirstOrDefault();
                 tmp.tip = posao.tip;
                 tmp.vreme = posao.vreme;
                 tmp.ulicaIme = posao.ulicaIme;
                 tmp.datum = posao.datum;
-                tmp.userRadnika = posao.userRadnika;
+
                 return cnt.SaveChanges();
             }
         }
 
-        static public void DodajUlicu(Ulica ulica)
+        static public void DodajMoguciPosao(MoguciPosao ulica)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                cnt.Ulicas.Add(ulica);
+                cnt.MoguciPosaos.Add(ulica);
                 cnt.SaveChanges();
             }
         }
 
-        static public int IzbrisiUlicu(Ulica ulica)
+        static public int IzbrisiMoguciPosao(MoguciPosao ulica)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                cnt.Ulicas.Remove(ulica);
+                cnt.MoguciPosaos.Remove(ulica);
                 return cnt.SaveChanges();
             }
         }
 
-        static public int IzmeniUlicu(Ulica ulica)
+        static public int IzmeniMoguciPosao(MoguciPosao ulica)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                Ulica tmp = cnt.Ulicas.Where(x => x.ulica1 == ulica.ulica1).FirstOrDefault();
+                MoguciPosao tmp = cnt.MoguciPosaos.Where(x => x.ulica == ulica.ulica).FirstOrDefault();
                 tmp.povrsina = ulica.povrsina;
-                tmp.planPranja = ulica.planPranja;
-                tmp.ulica1 = ulica.ulica1;
+                tmp.planp = ulica.planp;
+                tmp.ulica = ulica.ulica;
                 return cnt.SaveChanges();
             }
         }
@@ -116,35 +146,52 @@ namespace WPFCLEAN
                 return cnt.Nalogs.ToList();
             }
         }
-        static public Ulica GetUlica(string ulica)
+        static public ArhiviraniPosao GetArhiviraniPosao(int id)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                return cnt.Ulicas.Where(x => x.ulica1 == ulica).FirstOrDefault();
+                return cnt.ArhiviraniPosaos.Where(x => x.idPosla == id).FirstOrDefault();
             }
         }
 
-        static public List<Ulica> GetUlice()
+        static public List<ArhiviraniPosao> GetArhiviraniPoslovi()
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                return cnt.Ulicas.ToList();
-            }
-        }
-        static public Posao GetPosao(int posao)
-        {
-            using (DataBaseEntities cnt = new DataBaseEntities())
-            {
-                return cnt.Posaos.Where(x => x.idPosla == posao).FirstOrDefault();
+                return cnt.ArhiviraniPosaos.ToList();
             }
         }
 
-        static public List<Posao> GetPoslove()
+        static public MoguciPosao GetMoguciPosao(string ulica)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                return cnt.Posaos.ToList();
+                return cnt.MoguciPosaos.Where(x => x.ulica == ulica).FirstOrDefault();
             }
         }
+
+        static public List<MoguciPosao> GetMoguciPoslovi()
+        {
+            using (DataBaseEntities cnt = new DataBaseEntities())
+            {
+                return cnt.MoguciPosaos.ToList();
+            }
+        }
+        static public Poruka GetPoruka(int idpor)
+        {
+            using (DataBaseEntities cnt = new DataBaseEntities())
+            {
+                return cnt.Porukas.Where(x => x.idPoruke == idpor).FirstOrDefault();
+            }
+        }
+
+        static public List<Poruka> GetPoruke()
+        {
+            using (DataBaseEntities cnt = new DataBaseEntities())
+            {
+                return cnt.Porukas.ToList();
+            }
+        }
+
     }
 }

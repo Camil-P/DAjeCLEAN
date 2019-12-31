@@ -56,12 +56,11 @@ namespace WPFCLEAN
                         {
                             Nalog novaosoba = new Nalog();
                             novaosoba.username = txtusername.Text;
-                            novaosoba.password = txtsifra.Text;
-                            novaosoba.prava = txttip.Text;          //Tip treba da se makne.
+                            novaosoba.password = txtsifra.Text;          //Tip treba da se makne.
                             novaosoba.imePrezime = txtimeprezime.Text;
 
                             Osobeplus.Add(novaosoba);
-                            DataProvider.DodajNalog(novaosoba);
+                            EFDataProvider.DodajNalog(novaosoba);
                             this.Close();
                         }
                         else

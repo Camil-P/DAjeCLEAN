@@ -12,16 +12,13 @@ namespace WPFCLEAN
     using System;
     using System.Collections.Generic;
     
-    public partial class Posao
+    public partial class Poruka
     {
-        public int idPosla { get; set; }
-        public string tip { get; set; }
-        public System.TimeSpan vreme { get; set; }
-        public string ulicaIme { get; set; }
-        public System.DateTime datum { get; set; }
-        public string userRadnika { get; set; }
+        public int idPoruke { get; set; }
+        public string userKorisnika { get; set; }
+        public string poruka1 { get; set; }
+        public System.DateTime datumObjave { get; set; }
     
         public virtual Nalog Nalog { get; set; }
-        public virtual Ulica Ulica { get; set; }
     }
 }

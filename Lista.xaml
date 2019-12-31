@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="Lista" Height="450" Width="800">
     <DockPanel>
-        <DataGrid Name="dgcekiranja" FontSize="20"/>
+        <UniformGrid DockPanel.Dock="Bottom" Columns="2" Rows="1" Margin="15">
+            <Button Name="dodaj" Content="Dodaj posao" FontSize="35" Margin="0 0 15 0" Click="dodaj_Click"/>
+            <Button Name="potvrdi" Content="Sačuvaj" FontSize="35" Margin="15 0 0 0" Click="potvrdi_Click"/>
+        </UniformGrid>
+        <DataGrid Name="dgDP" FontSize="20" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" 
+                  CanUserAddRows="False" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ime ulice" Binding="{Binding ulica}"/>
+                <DataGridTextColumn Header="Tip posla" Binding="{Binding tip}"/>
+                <DataGridTextColumn Header="Povrsina" Binding="{Binding povrsina}"/>
+                <DataGridCheckBoxColumn Binding="{Binding Stiklirano}">
+                    <DataGridCheckBoxColumn.Header>
+                        <CheckBox Name="chkSelectAll" Checked="chkSelectAll_Checked" 
+                                  Unchecked="chkSelectAll_Unchecked"/>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </DockPanel>
 </Window>

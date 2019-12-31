@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ea149c440b5245738a41a7948b7eb24f" Name="Diagram1">
-        <EntityTypeShape EntityType="DataBaseModel.Nalog" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataBaseModel.Posao" Width="1.5" PointX="3.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataBaseModel.Ulica" Width="1.5" PointX="0.875" PointY="3.375" IsExpanded="true" />
-        <AssociationConnector Association="DataBaseModel.FK_Poslovi_Nalozi" ManuallyRouted="false" />
-        <AssociationConnector Association="DataBaseModel.FK_Poslovi_Ulice" ManuallyRouted="false" />
+      <Diagram DiagramId="69e0e2c1b33f49ce90599785c2da2f82" Name="Diagram1">
+        <EntityTypeShape EntityType="DataBaseModel.ArhiviraniPosao" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.MoguciPosao" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Nalog" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBaseModel.Poruka" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="DataBaseModel.FK_Poruka_Nalog" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
