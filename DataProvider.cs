@@ -31,12 +31,25 @@ namespace WPFCLEAN
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                Nalog tmp = cnt.Nalogs.Where(x => x.IDNaloga == nalog.IDNaloga).FirstOrDefault();
-                tmp.password = nalog.password;
-                tmp.imePrezime = nalog.imePrezime;
-                tmp.username = nalog.username;
-
-                return cnt.SaveChanges();
+                bool provera = false;
+                foreach (Nalog n in cnt.Nalogs)
+                {
+                    if (n.username == nalog.username)
+                        provera = true;
+                    else
+                        provera = false;
+                }
+                if (!provera)
+                {
+                    Nalog tmp = cnt.Nalogs.Where(x => x.IDNaloga == nalog.IDNaloga).FirstOrDefault();
+                    tmp.password = nalog.password;
+                    tmp.imePrezime = nalog.imePrezime;
+                    tmp.username = nalog.username;
+                    return cnt.SaveChanges();
+                }
+                else
+                    return 0;
+                    
             }
         }
         #endregion

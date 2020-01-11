@@ -141,9 +141,9 @@ namespace WPFCLEAN
             {
                 if (dnevniposlovi[j].Stiklirano == true)
                 {
-                    if (dnevniposlovi[j].tip == "Pranje" || dnevniposlovi[j].tip == "Ciscenje" || dnevniposlovi[j].tip == "Kontejneri")
+                    if (dnevniposlovi[j].ulica != null)
                     {
-                        if (dnevniposlovi[j].ulica != null)
+                        if (dnevniposlovi[j].tip == "Pranje" || dnevniposlovi[j].tip == "Ciscenje" || dnevniposlovi[j].tip == "Kontejneri")
                         {
                             odradjeniposao.ulicaIme = dnevniposlovi[j].ulica;
                             odradjeniposao.tip = dnevniposlovi[j].tip;
@@ -152,14 +152,13 @@ namespace WPFCLEAN
                             if (j < (dnevniposlovi.Count - dodaniposlovi))
                                 EFDataProvider.IzmeniMoguciPosao(dnevniposlovi[j]);
                         }
+                        else if (dnevniposlovi[j].tip == "pranje" || dnevniposlovi[j].tip == "ciscenje" || dnevniposlovi[j].tip == "kontejneri")
+                            MessageBox.Show("Pocetno slovo tipa datog posla mora biti veliko.");
                         else
-                            MessageBox.Show("Naziv ulice nije unet!");
+                            MessageBox.Show("Uneli ste nepostojeći tip posla!");
                     }
-                    else if (dnevniposlovi[j].tip == "pranje" || dnevniposlovi[j].tip == "ciscenje" || dnevniposlovi[j].tip == "kontejneri")
-                        MessageBox.Show("Pocetno slovo tipa datog posla mora biti veliko.");
-
                     else
-                        MessageBox.Show("Uneli ste nepostojeći tip posla!");
+                        MessageBox.Show("Niste uneli naziv ulice");
                 }
             }
             if(dodaniposlovi > 0)

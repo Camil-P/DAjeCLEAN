@@ -83,12 +83,5 @@ namespace WPFCLEAN
             foreach (Nalog trosoba in trosobe)
                 osobe.Add(trosoba);
         }
-
-        private void btKreiraj_Click(object sender, RoutedEventArgs e)
-        {
-            Registracija prozorregistracije = new Registracija();
-            prozorregistracije.DataContext = osobe;
-            prozorregistracije.Visibility = Visibility.Visible;
-        }
     }
 }
