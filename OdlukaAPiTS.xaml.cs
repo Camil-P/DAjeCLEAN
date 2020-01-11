@@ -19,6 +19,7 @@ namespace WPFCLEAN
     /// </summary>
     public partial class OdlukaAPiTS : Window
     {
+        public static string privremeni;
         public OdlukaAPiTS()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace WPFCLEAN
 
         private void pts_Click(object sender, RoutedEventArgs e)
         {
+            OdlukaAPiTS.privremeni = "Sve";
             Lista ProzorListe = new Lista();
             ProzorListe.Visibility = Visibility.Visible;
             this.Close();
@@ -33,8 +35,9 @@ namespace WPFCLEAN
 
         private void pap_Click(object sender, RoutedEventArgs e)
         {
-            string danas = DateTime.Now.DayOfWeek.ToString();
-            MessageBox.Show(danas);
+            Arhiva prozorArhive = new Arhiva();
+            prozorArhive.Visibility = Visibility.Visible;
+            this.Close();
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPFCLEAN.Arhiva"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFCLEAN"
+        mc:Ignorable="d"
+        Title="Arhiva" Height="450" Width="800">
+    <DockPanel>
+        <UniformGrid Columns="6" Rows="1" DockPanel.Dock="Top">
+            <Label Content="Od: "/>
+            <DatePicker Name="PocetnoVreme" />
+            <Label Content="Do: " />
+            <DatePicker Name="KrajnjeVreme"/>
+            <Button Content="Potvrdi" Click="Button_Click"/>
+            <Button Content="Ispisi Sve" Click="Button_Click_1"/>
+        </UniformGrid>
+        <DataGrid DockPanel.Dock="Top" Name="dgArhiva" CanUserAddRows ="False" FontSize ="25" 
+                            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ime ulice" IsReadOnly="True" Binding ="{Binding ulicaIme}" Width="*"/>
+                <DataGridTextColumn Binding="{Binding tip}" Width="*">
+                    <DataGridTextColumn.Header>
+                        <ComboBox Name="comboTip" HorizontalAlignment="Center" SelectionChanged="tip_SelectionChanged"/>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Vreme" IsReadOnly="True" Binding="{Binding vreme}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

@@ -16,8 +16,7 @@ namespace WPFCLEAN
     {
         public int idPosla { get; set; }
         public string tip { get; set; }
-        public System.TimeSpan vreme { get; set; }
         public string ulicaIme { get; set; }
-        public System.DateTime datum { get; set; }
+        public System.DateTime vreme { get; set; }
     }
 }

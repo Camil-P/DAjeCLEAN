@@ -13,7 +13,7 @@ namespace WPFCLEAN
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class MoguciPosao : INotifyPropertyChanged
+    public partial class MoguciPosao : INotifyProperyChanged
     {
         public string ulica { get; set; }
         public Nullable<double> povrsina { get; set; }
@@ -31,7 +31,12 @@ namespace WPFCLEAN
                     PropertyChanged(this, new PropertyChangedEventArgs("Stiklirano"));
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+        public MoguciPosao(bool s)
+        {
+            Stiklirano = s;
+        }
         public MoguciPosao() { }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -23,12 +23,24 @@ namespace WPFCLEAN
         public MainWindow()
         {
             InitializeComponent();
+            if (!Login.sef)
+                tablaBtn.Visibility = Visibility.Hidden;
+
+            EFDataProvider.RefreshujPoslove();
         }
 
         private void listaBtn_Click(object sender, RoutedEventArgs e)
         {
-            OdlukaAPiTS ProzorOdluke = new OdlukaAPiTS();
-            ProzorOdluke.Visibility = Visibility.Visible;
+            if (Login.sef)
+            {
+                OdlukaAPiTS ProzorOdluke = new OdlukaAPiTS();
+                ProzorOdluke.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Lista prozorLista = new Lista();
+                prozorLista.Visibility = Visibility.Visible;
+            }
         }
 
         #region Logout
@@ -39,5 +51,34 @@ namespace WPFCLEAN
             this.Close();
         }
         #endregion
+
+        private void PranjeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OdlukaAPiTS.privremeni = "Pranje";
+            Lista ProzorListe = new Lista();
+            ProzorListe.Visibility = Visibility.Visible;
+        }
+
+        private void ciscenjeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OdlukaAPiTS.privremeni = "Ciscenje";
+            Lista ProzorListe = new Lista();
+            ProzorListe.Visibility = Visibility.Visible;
+           
+        }
+
+        private void KontejneriBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OdlukaAPiTS.privremeni = "Kontejneri";
+            Lista ProzorListe = new Lista();
+            ProzorListe.Visibility = Visibility.Visible;
+            
+        }
+
+        private void tablaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Account prozorAcc = new Account();
+            prozorAcc.Visibility = Visibility.Visible;
+        }
     }
 }

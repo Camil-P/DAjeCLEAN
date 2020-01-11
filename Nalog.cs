@@ -14,17 +14,16 @@ namespace WPFCLEAN
     
     public partial class Nalog
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Nalog()
-        {
-            this.Porukas = new HashSet<Poruka>();
-        }
-    
+        public int IDNaloga { get; set; }
         public string username { get; set; }
         public string password { get; set; }
         public string imePrezime { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Poruka> Porukas { get; set; }
+        public Nalog(string u, string p, string ip)
+        {
+            username = u;
+            password = p;
+            imePrezime = ip;
+        }
+        public Nalog() { }
     }
 }

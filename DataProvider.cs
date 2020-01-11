@@ -8,7 +8,7 @@ namespace WPFCLEAN
 {
     class EFDataProvider
     {
-
+        #region Nalog
         static public void DodajNalog(Nalog nalog)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
@@ -18,12 +18,12 @@ namespace WPFCLEAN
             }
         }
 
-        static public int IzbrisiNalog(Nalog nalog)
+        static public void IzbrisiNalog(Nalog nalog)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
                 cnt.Nalogs.Remove(nalog);
-                return cnt.SaveChanges();
+                cnt.SaveChanges();
             }
         }
 
@@ -31,7 +31,7 @@ namespace WPFCLEAN
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                Nalog tmp = cnt.Nalogs.Where(x => x.username == nalog.username).FirstOrDefault();
+                Nalog tmp = cnt.Nalogs.Where(x => x.IDNaloga == nalog.IDNaloga).FirstOrDefault();
                 tmp.password = nalog.password;
                 tmp.imePrezime = nalog.imePrezime;
                 tmp.username = nalog.username;
@@ -39,6 +39,9 @@ namespace WPFCLEAN
                 return cnt.SaveChanges();
             }
         }
+        #endregion
+
+        #region Poruke
         static public void DodajPoruku(Poruka poruka)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
@@ -62,13 +65,13 @@ namespace WPFCLEAN
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
                 Poruka tmp = cnt.Porukas.Where(x => x.idPoruke == poruka.idPoruke).FirstOrDefault();
-                tmp.userKorisnika = poruka.userKorisnika;
                 tmp.poruka1 = poruka.poruka1;
                 tmp.datumObjave = poruka.datumObjave;
 
                 return cnt.SaveChanges();
             }
         }
+        #endregion
 
         static public void DodajArhiviraniPosao(ArhiviraniPosao posao)
         {
@@ -96,7 +99,6 @@ namespace WPFCLEAN
                 tmp.tip = posao.tip;
                 tmp.vreme = posao.vreme;
                 tmp.ulicaIme = posao.ulicaIme;
-                tmp.datum = posao.datum;
 
                 return cnt.SaveChanges();
             }
@@ -120,7 +122,7 @@ namespace WPFCLEAN
             }
         }
 
-        static public int IzmeniMoguciPosao(MoguciPosao ulica)
+        static public void IzmeniMoguciPosao(MoguciPosao ulica)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
@@ -128,7 +130,42 @@ namespace WPFCLEAN
                 tmp.povrsina = ulica.povrsina;
                 tmp.planp = ulica.planp;
                 tmp.ulica = ulica.ulica;
-                return cnt.SaveChanges();
+                tmp.Stiklirano = ulica.Stiklirano;
+                cnt.SaveChanges();
+            }
+        }
+        static public void RefreshujPoslove() 
+        {
+            using (DataBaseEntities cnt = new DataBaseEntities())
+            {
+                string danas = DateTime.Now.DayOfWeek.ToString();
+                string dplan = "";
+                string ddplan = "";
+                switch (danas)
+                {
+                    case "Monday":
+                        dplan = "A";
+                        ddplan = "F";
+                        break;
+                    case "Tuesday":
+                        dplan = "C";
+                        break;
+                    case "Wednesday":
+                        dplan = "C";
+                        break;
+                    case "Thursday":
+                        dplan = "D";
+                        break;
+                    case "Friday":
+                        dplan = "E";
+                        break;
+                }
+                foreach (MoguciPosao p in cnt.MoguciPosaos)
+                {
+                    if (p.planp != dplan && p.planp != ddplan)
+                    p.Stiklirano = false;
+                }
+                cnt.SaveChanges();
             }
         }
         static public Nalog GetNalog(string nalog)
@@ -174,7 +211,7 @@ namespace WPFCLEAN
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                return cnt.MoguciPosaos.ToList();
+                return cnt.MoguciPosaos.Where(x => x.Stiklirano == false).ToList();
             }
         }
         static public Poruka GetPoruka(int idpor)

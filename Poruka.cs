@@ -15,10 +15,7 @@ namespace WPFCLEAN
     public partial class Poruka
     {
         public int idPoruke { get; set; }
-        public string userKorisnika { get; set; }
         public string poruka1 { get; set; }
         public System.DateTime datumObjave { get; set; }
-    
-        public virtual Nalog Nalog { get; set; }
     }
 }

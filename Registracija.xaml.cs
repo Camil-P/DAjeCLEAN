@@ -40,42 +40,42 @@ namespace WPFCLEAN
             }
             else
             {
-                if (txttip.Text == "Sef" || txttip.Text == "Radnik")       //Tip treba da se makne.
+                if (this.DataContext is ObservableCollection<Nalog> Osobeplus)
                 {
-                    if (DataContext is ObservableCollection<Nalog> Osobeplus)
+                    bool provera = false;
+                    foreach (var osoba in Osobeplus)
                     {
-                        bool provera = false;
-                        foreach(var osoba in Osobeplus)
+                        if (osoba.username == txtusername.Text)
                         {
-                            if(osoba.username == txtusername.Text)
-                            {
-                                provera = true;
-                            }
+                            provera = true;
                         }
-                        if (!provera)
-                        {
-                            Nalog novaosoba = new Nalog();
-                            novaosoba.username = txtusername.Text;
-                            novaosoba.password = txtsifra.Text;          //Tip treba da se makne.
-                            novaosoba.imePrezime = txtimeprezime.Text;
-
-                            Osobeplus.Add(novaosoba);
-                            EFDataProvider.DodajNalog(novaosoba);
-                            this.Close();
-                        }
-                        else
-                            MessageBox.Show("Korisničko ime je zazeto!");
                     }
-                }
-                else
-                    MessageBox.Show("Unesite ispravan tip.");
 
+                    if (!provera)
+                    {
+                        Nalog novaosoba = new Nalog(txtusername.Text, txtsifra.Text, txtimeprezime.Text);
+
+                        Osobeplus.Add(novaosoba);
+                        EFDataProvider.DodajNalog(novaosoba);
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Korisničko ime je zazeto!");
+                }
+                else if (this.DataContext is Nalog izmena)
+                {
+                    BindingOperations.GetBindingExpression(txtusername, TextBox.TextProperty).UpdateSource();
+                    BindingOperations.GetBindingExpression(txtsifra, TextBox.TextProperty).UpdateSource();
+                    BindingOperations.GetBindingExpression(txtimeprezime, TextBox.TextProperty).UpdateSource();
+
+                    EFDataProvider.IzmeniNalog(izmena);
+                    this.Close();
+                }
             }
         }
         private bool Provera_Polja()
         {
-            return string.IsNullOrEmpty(txtusername.Text) || string.IsNullOrEmpty(txtsifra.Text) || string.IsNullOrEmpty(txtimeprezime.Text) ||
-                string.IsNullOrEmpty(txttip.Text);          //Tip treba da se makne.
+            return string.IsNullOrEmpty(txtusername.Text) || string.IsNullOrEmpty(txtsifra.Text) || string.IsNullOrEmpty(txtimeprezime.Text);        
         }
     }
 }

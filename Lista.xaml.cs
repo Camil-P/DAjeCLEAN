@@ -21,22 +21,39 @@ namespace WPFCLEAN
     /// </summary>
     public partial class Lista : Window
     {
-        List<MoguciPosao> dnevniposlovi = new List<MoguciPosao>();
-        private bool _stiklirano;
-        public bool stiklirano
-        {
-            get => _stiklirano;
-            set
-            {
-
-            }
-        }
+        ArhiviraniPosao odradjeniposao = new ArhiviraniPosao();
+        ObservableCollection<MoguciPosao> dnevniposlovi = new ObservableCollection<MoguciPosao>();
+        int dodaniposlovi = 0;
         public Lista()
         {
+            //EFDataProvider.RefreshujPoslove();
             InitializeComponent();
 
             NapuniDnevno();
-
+            if(OdlukaAPiTS.privremeni == "Sve")
+                dgDP.ItemsSource = dnevniposlovi;
+            else if (OdlukaAPiTS.privremeni == "Pranje")
+            {
+                for (int i = 0; i < dnevniposlovi.Count; i++)
+                {
+                    if (dnevniposlovi[i].tip != "Pranje")
+                    {
+                        dnevniposlovi.RemoveAt(i);
+                        i -= 1;
+                    }
+                }
+            }
+            else if (OdlukaAPiTS.privremeni == "Ciscenje")
+            {
+                for (int i = 0; i < dnevniposlovi.Count; i++)
+                {
+                    if (dnevniposlovi[i].tip != "Ciscenje")
+                    {
+                        dnevniposlovi.RemoveAt(i);
+                        i -= 1;
+                    }
+                }
+            }
             dgDP.ItemsSource = dnevniposlovi;
         }
         private void NapuniDnevno()
@@ -46,30 +63,55 @@ namespace WPFCLEAN
             switch (danas)
             {
                 case "Monday":
-                    dnevniposlovi.AddRange(trposlovi.Where(x => x.planp == "A" || x.planp == "E"));
+                    foreach (MoguciPosao p in trposlovi)
+                    {
+                        if (p.planp == "A" || p.planp == "E")
+                            dnevniposlovi.Add(p);
+                    }
                     break;
+                case "Sunday":  //Treba da se skloni
                 case "Tuesday":
-                    dnevniposlovi.AddRange(trposlovi.Where(x => x.planp == "B"));
+                    foreach (MoguciPosao p in trposlovi)
+                    {
+                        if (p.planp == "B")
+                            dnevniposlovi.Add(p);
+                    }
                     break;
                 case "Wednesday":
                     string strdatum = DateTime.Now.ToString();
                     int datum = int.Parse(strdatum.ElementAt(3).ToString()) * 10 + int.Parse(strdatum.ElementAt(4).ToString());
                     if (datum >= 23)
                     {
-                        dnevniposlovi.AddRange(trposlovi.Where(x => x.planp == "F"));
+                        foreach (MoguciPosao p in trposlovi)
+                        {
+                            if (p.planp == "F")
+                                dnevniposlovi.Add(p);
+                        }
                         break;
                     }
                     else
                     {
-                        dnevniposlovi.AddRange(trposlovi.Where(x => x.planp == "A"));
+                        foreach (MoguciPosao p in trposlovi)
+                        {
+                            if (p.planp == "A")
+                                dnevniposlovi.Add(p);
+                        }
                         break;
                     }
 
                 case "Thursday":
-                    dnevniposlovi.AddRange(trposlovi.Where(x => x.planp == "C"));
+                    foreach (MoguciPosao p in trposlovi)
+                    {
+                        if (p.planp == "C")
+                            dnevniposlovi.Add(p);
+                    }
                     break;
                 case "Friday":
-                    dnevniposlovi.AddRange(trposlovi.Where(x => x.planp == "D"));
+                    foreach (MoguciPosao p in trposlovi)
+                    {
+                        if (p.planp == "D")
+                            dnevniposlovi.Add(p);
+                    }
                     break;
 
             }
@@ -77,9 +119,8 @@ namespace WPFCLEAN
 
         private void dodaj_Click(object sender, RoutedEventArgs e)
         {
-            dnevniposlovi.Add(new MoguciPosao());
-            dgDP.ItemsSource = null;
-            dgDP.ItemsSource = dnevniposlovi;
+            dnevniposlovi.Add(new MoguciPosao(true));
+            dodaniposlovi += 1;
         }
         private void chkSelectAll_Checked(object sender, RoutedEventArgs e)
         {
@@ -95,13 +136,40 @@ namespace WPFCLEAN
 
         private void potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            foreach(MoguciPosao p in dgDP.ItemsSource)
+            List<MoguciPosao> brzalista = new List<MoguciPosao>();
+            for(int j = 0; j < dnevniposlovi.Count; j++)
             {
-                if (p.Stiklirano == true)
-                { 
+                if (dnevniposlovi[j].Stiklirano == true)
+                {
+                    if (dnevniposlovi[j].tip == "Pranje" || dnevniposlovi[j].tip == "Ciscenje" || dnevniposlovi[j].tip == "Kontejneri")
+                    {
+                        if (dnevniposlovi[j].ulica != null)
+                        {
+                            odradjeniposao.ulicaIme = dnevniposlovi[j].ulica;
+                            odradjeniposao.tip = dnevniposlovi[j].tip;
+                            odradjeniposao.vreme = DateTime.Now;
+                            EFDataProvider.DodajArhiviraniPosao(odradjeniposao);
+                            if (j < (dnevniposlovi.Count - dodaniposlovi))
+                                EFDataProvider.IzmeniMoguciPosao(dnevniposlovi[j]);
+                        }
+                        else
+                            MessageBox.Show("Naziv ulice nije unet!");
+                    }
+                    else if (dnevniposlovi[j].tip == "pranje" || dnevniposlovi[j].tip == "ciscenje" || dnevniposlovi[j].tip == "kontejneri")
+                        MessageBox.Show("Pocetno slovo tipa datog posla mora biti veliko.");
 
+                    else
+                        MessageBox.Show("Uneli ste nepostojeći tip posla!");
                 }
             }
-        }
+            if(dodaniposlovi > 0)
+                for (int i = dnevniposlovi.Count - dodaniposlovi; i < dnevniposlovi.Count; i++)
+                    brzalista.Add(dnevniposlovi[i]);
+            dnevniposlovi.Clear();
+            NapuniDnevno();
+            if(dodaniposlovi > 0)
+                foreach(MoguciPosao bp in brzalista)
+                    dnevniposlovi.Add(bp);
+        }   
     }
 }

@@ -14,13 +14,11 @@
 
         <UniformGrid Columns="2">
             <Label Content="Username:" FontSize="45" Margin="30 0 0 0"/>
-            <TextBox Name="txtusername" FontSize="45" Margin="0 0 30 0"/>
+            <TextBox Name="txtusername" Text="{Binding username, UpdateSourceTrigger=Explicit}" FontSize="45" Margin="0 0 30 0"/>
             <Label Content="Sifra:" FontSize="45" Margin="30 0 0 0"/>
-            <TextBox Name="txtsifra" FontSize="45" Margin="0 0 30 0"/>
-            <Label Content="Tip:" FontSize="45" Margin="30 0 0 0"/>
-            <TextBox Name="txttip" FontSize="45" Margin="0 0 30 0"/>
+            <TextBox Name="txtsifra" Text="{Binding password, UpdateSourceTrigger=Explicit}" FontSize="45" Margin="0 0 30 0"/>
             <Label Content="Ime i Prezime:" FontSize="45" Margin="30 0 0 0"/>
-            <TextBox Name="txtimeprezime" Margin="0 0 30 0" FontSize="45"/>
+            <TextBox Name="txtimeprezime" Text="{Binding imePrezime, UpdateSourceTrigger=Explicit}" Margin="0 0 30 0" FontSize="45"/>
         </UniformGrid>
     </DockPanel>
 </Window>

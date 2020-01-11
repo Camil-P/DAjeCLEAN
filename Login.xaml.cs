@@ -20,6 +20,7 @@ namespace WPFCLEAN
     /// </summary>
     public partial class Login : Window
     {
+        public static bool sef = true;
         private ObservableCollection<Nalog> osobe = new ObservableCollection<Nalog>();
         public Login()
         {
@@ -54,29 +55,28 @@ namespace WPFCLEAN
             }
             else
             {
+               
+                bool provera = false;
                 foreach (var korisnik in osobe)
                 {
-                    if (korisnik.username == cb.Text)
+                    if (korisnik.password == txtSifra.Password)
                     {
-                        if (korisnik.password == txtSifra.Password)
-                        {
-                            MainWindow Glavniprozor = new MainWindow();
-                            Glavniprozor.DataContext = korisnik;
-                            Glavniprozor.Visibility = Visibility.Visible;
-
-                            this.Close();
-                            
-                        }
+                        if (cb.Text == "Bendza")
+                            sef = true;
                         else
-                        {
-                            OcistiLoz();
-                            MessageBox.Show("Uneli ste pogresni sifru, molim vas pokusajte ponovo.");
-                        }
+                            sef = false;
+
+                        provera = true;
                     }
+                }
+                if (provera == true)
+                {
+                    MainWindow Glavniprozor = new MainWindow();
+                    Glavniprozor.Visibility = Visibility.Visible;
+                    this.Close();
                 }
             }
         }
-
         private void Napuni()
         {
             var trosobe = EFDataProvider.GetNalozi();
