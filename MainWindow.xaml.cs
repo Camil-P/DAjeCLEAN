@@ -20,6 +20,7 @@ namespace WPFCLEAN
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string privremeni;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +30,14 @@ namespace WPFCLEAN
             EFDataProvider.RefreshujPoslove();
         }
 
+        #region Logout
+        private void logoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Visibility = Visibility.Visible;
+            this.Close();
+        }
+        #endregion
         private void listaBtn_Click(object sender, RoutedEventArgs e)
         {
             if (Login.sef)
@@ -43,25 +52,17 @@ namespace WPFCLEAN
             }
         }
 
-        #region Logout
-        private void logoutBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.Visibility = Visibility.Visible;
-            this.Close();
-        }
-        #endregion
-
+        #region Pojedinacni_Pregled
         private void PranjeBtn_Click(object sender, RoutedEventArgs e)
         {
-            OdlukaAPiTS.privremeni = "Pranje";
+            MainWindow.privremeni = "Pranje";
             Lista ProzorListe = new Lista();
             ProzorListe.Visibility = Visibility.Visible;
         }
 
         private void ciscenjeBtn_Click(object sender, RoutedEventArgs e)
         {
-            OdlukaAPiTS.privremeni = "Ciscenje";
+            MainWindow.privremeni = "Ciscenje";
             Lista ProzorListe = new Lista();
             ProzorListe.Visibility = Visibility.Visible;
            
@@ -69,12 +70,12 @@ namespace WPFCLEAN
 
         private void KontejneriBtn_Click(object sender, RoutedEventArgs e)
         {
-            OdlukaAPiTS.privremeni = "Kontejneri";
+            MainWindow.privremeni = "Kontejneri";
             Lista ProzorListe = new Lista();
             ProzorListe.Visibility = Visibility.Visible;
             
         }
-
+        #endregion
         private void tablaBtn_Click(object sender, RoutedEventArgs e)
         {
             Account prozorAcc = new Account();

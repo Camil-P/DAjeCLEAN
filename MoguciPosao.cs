@@ -31,6 +31,11 @@ namespace WPFCLEAN
                     PropertyChanged(this, new PropertyChangedEventArgs("Stiklirano"));
             }
         }
+        public MoguciPosao(string t, bool s)
+        {
+            tip = t;
+            Stiklirano = s;
+        }
         public MoguciPosao(bool s)
         {
             Stiklirano = s;

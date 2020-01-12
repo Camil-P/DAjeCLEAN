@@ -19,7 +19,6 @@ namespace WPFCLEAN
     /// </summary>
     public partial class OdlukaAPiTS : Window
     {
-        public static string privremeni;
         public OdlukaAPiTS()
         {
             InitializeComponent();
@@ -27,7 +26,7 @@ namespace WPFCLEAN
 
         private void pts_Click(object sender, RoutedEventArgs e)
         {
-            OdlukaAPiTS.privremeni = "Sve";
+            MainWindow.privremeni = "Sve";
             Lista ProzorListe = new Lista();
             ProzorListe.Visibility = Visibility.Visible;
             this.Close();

@@ -36,8 +36,6 @@ namespace WPFCLEAN
                 {
                     if (n.username == nalog.username)
                         provera = true;
-                    else
-                        provera = false;
                 }
                 if (!provera)
                 {

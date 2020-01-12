@@ -65,16 +65,15 @@ namespace WPFCLEAN
                 
                 else if (this.DataContext is Nalog izmena)
                 {
-                    if (EFDataProvider.IzmeniNalog(izmena) == 0)
-                        MessageBox.Show("Korisnicko imo je zauzeto.");
+                    BindingOperations.GetBindingExpression(txtusername, TextBox.TextProperty).UpdateSource();
+                    BindingOperations.GetBindingExpression(txtsifra, TextBox.TextProperty).UpdateSource();
+                    BindingOperations.GetBindingExpression(txtimeprezime, TextBox.TextProperty).UpdateSource();
+
+                    if (EFDataProvider.IzmeniNalog(izmena) != 0)
+                        MessageBox.Show("Uspešno ste izmenili nalog.");
                     else
-                    {
-                        BindingOperations.GetBindingExpression(txtusername, TextBox.TextProperty).UpdateSource();
-                        BindingOperations.GetBindingExpression(txtsifra, TextBox.TextProperty).UpdateSource();
-                        BindingOperations.GetBindingExpression(txtimeprezime, TextBox.TextProperty).UpdateSource();
-                        
-                        EFDataProvider.IzmeniNalog(izmena);
-                    }
+                        MessageBox.Show("Korisnicko ime je zauzeto.");
+
                     this.Close();
                 }
             }

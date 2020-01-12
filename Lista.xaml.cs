@@ -26,13 +26,12 @@ namespace WPFCLEAN
         int dodaniposlovi = 0;
         public Lista()
         {
-            //EFDataProvider.RefreshujPoslove();
             InitializeComponent();
 
             NapuniDnevno();
-            if(OdlukaAPiTS.privremeni == "Sve")
+            if(MainWindow.privremeni == "Sve")
                 dgDP.ItemsSource = dnevniposlovi;
-            else if (OdlukaAPiTS.privremeni == "Pranje")
+            else if (MainWindow.privremeni == "Pranje")
             {
                 for (int i = 0; i < dnevniposlovi.Count; i++)
                 {
@@ -43,7 +42,7 @@ namespace WPFCLEAN
                     }
                 }
             }
-            else if (OdlukaAPiTS.privremeni == "Ciscenje")
+            else if (MainWindow.privremeni == "Ciscenje")
             {
                 for (int i = 0; i < dnevniposlovi.Count; i++)
                 {
@@ -119,10 +118,20 @@ namespace WPFCLEAN
 
         private void dodaj_Click(object sender, RoutedEventArgs e)
         {
-            dnevniposlovi.Add(new MoguciPosao(true));
+            if (MainWindow.privremeni == "Sve")
+                dnevniposlovi.Add(new MoguciPosao(true));
+
+            else if (MainWindow.privremeni == "Ciscenje")
+                dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
+
+            else if (MainWindow.privremeni == "Pranje")
+                dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
+
+            else
+                dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
             dodaniposlovi += 1;
         }
-        private void chkSelectAll_Checked(object sender, RoutedEventArgs e)
+    private void chkSelectAll_Checked(object sender, RoutedEventArgs e)
         {
             foreach(MoguciPosao p in dgDP.ItemsSource)
                 p.Stiklirano = true;
