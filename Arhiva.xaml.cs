@@ -22,6 +22,7 @@ namespace WPFCLEAN
     {
         ObservableCollection<ArhiviraniPosao> trlista = new ObservableCollection<ArhiviraniPosao>();
         ObservableCollection<ArhiviraniPosao> ListaArhiviranih = new ObservableCollection<ArhiviraniPosao>();
+
         List<string> tipovi = new List<string>();
         
         public Arhiva()
@@ -41,22 +42,6 @@ namespace WPFCLEAN
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (PocetnoVreme.SelectedDate < KrajnjeVreme.SelectedDate)
-            {
-                trlista.Clear();
-                foreach (var ar in ListaArhiviranih)
-                {
-                    if (ar.vreme >= PocetnoVreme.SelectedDate && ar.vreme <= KrajnjeVreme.SelectedDate) 
-                        trlista.Add(ar);
-                }
-                dgArhiva.ItemsSource = trlista;
-            }
-            else
-                MessageBox.Show("Uneli ste nepostojeci Datum!");
-            
-        }
         private void napuniTipove()
         {
             tipovi.Add("Sve");
@@ -66,68 +51,147 @@ namespace WPFCLEAN
             
         }
 
-        private void tip_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SkloniNepotrebne()
         {
             trlista.Clear();
-            foreach(ArhiviraniPosao a in ListaArhiviranih)
+            if (comboTip.SelectedValue == null || comboTip.SelectedValue.ToString() == "Sve")
+                foreach (ArhiviraniPosao mp in ListaArhiviranih)
+                    trlista.Add(mp);
+            else if (comboTip.SelectedValue.ToString() == "Pranje")
             {
-                trlista.Add(a);
+                foreach (ArhiviraniPosao mp in ListaArhiviranih)
+                    if (mp.tip == "Pranje")
+                        trlista.Add(mp);
             }
-
-            if (PocetnoVreme.SelectedDate < KrajnjeVreme.SelectedDate)
+            else if (comboTip.SelectedValue.ToString() == "Ciscenje")
             {
-                trlista.Clear();
-                foreach (var ar in ListaArhiviranih)
-                {
-                    if (ar.vreme >= PocetnoVreme.SelectedDate && ar.vreme <= KrajnjeVreme.SelectedDate)
-                        trlista.Add(ar);
-                }
-                dgArhiva.ItemsSource = trlista;
-            }
-
-
-            if (comboTip.SelectedValue.ToString() == "Pranje")
-            {
-                for (int i = 0; i < trlista.Count; i++)
-                {
-                    if (trlista[i].tip != "Pranje")
-                    {
-                        trlista.RemoveAt(i);
-                        i -= 1;
-                    }
-                }
-                
-            }
-            else if (comboTip.SelectedValue.ToString()  == "Ciscenje" )
-            {
-                for (int i = 0; i < trlista.Count; i++)
-                {
-                    if (trlista[i].tip != "Ciscenje")
-                    {
-                        trlista.RemoveAt(i);
-                        i -= 1;
-                    }
-                }
-
+                foreach (ArhiviraniPosao mp in ListaArhiviranih)
+                    if (mp.tip == "Ciscenje")
+                        trlista.Add(mp);
             }
             else if (comboTip.SelectedValue.ToString() == "Kontejneri")
             {
+                foreach (ArhiviraniPosao mp in ListaArhiviranih)
+                    if (mp.tip == "Kontejneri")
+                        trlista.Add(mp);
+            }
+        }
+
+        private void tip_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int proveravremena = 0;
+            //trlista.Clear();
+
+            #region ProveraVremena
+
+            if (PocetnoVreme.SelectedDate != null && KrajnjeVreme.SelectedDate != null)
+                if (PocetnoVreme.SelectedDate > KrajnjeVreme.SelectedDate)
+                    proveravremena = 5;
+                else
+                    proveravremena = 1;
+            else if (PocetnoVreme.SelectedDate == null && KrajnjeVreme.SelectedDate != null)
+                proveravremena = 2;
+            else if (PocetnoVreme.SelectedDate != null && KrajnjeVreme.SelectedDate == null)
+                proveravremena = 3;
+            else if (PocetnoVreme.SelectedDate == null && KrajnjeVreme.SelectedDate == null)
+                proveravremena = 4;
+            else
+                proveravremena = 5;
+
+            #endregion
+
+            if (proveravremena == 4)
+                SkloniNepotrebne();
+            else if (proveravremena == 1)
+            {
+                SkloniNepotrebne();
                 for (int i = 0; i < trlista.Count; i++)
-                {
-                    if (trlista[i].tip != "Kontejneri")
+                    if (trlista[i].vreme < PocetnoVreme.SelectedDate || trlista[i].vreme > KrajnjeVreme.SelectedDate)
                     {
                         trlista.RemoveAt(i);
                         i -= 1;
                     }
-                }
+            }
+            else if (proveravremena == 2)
+            {
+                SkloniNepotrebne();
+                for (int i = 0; i < trlista.Count; i++)
+                    if (trlista[i].vreme > KrajnjeVreme.SelectedDate)
+                    {
+                        trlista.RemoveAt(i);
+                        i -= 1;
+                    }
+            }
+            else if (proveravremena == 3)
+            {
+                for (int i = 0; i < trlista.Count; i++)
+                    if (trlista[i].vreme < PocetnoVreme.SelectedDate)
+                    {
+                        trlista.RemoveAt(i);
+                        i -= 1;
+                    }
             }
             else
-                dgArhiva.ItemsSource = trlista;
+                MessageBox.Show("Stavili ste nepostojece granice vremena.");
             dgArhiva.ItemsSource = trlista;
+        }
+        
+        private void PocetnoVreme_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //trlista.Clear();
+            SkloniNepotrebne();
+            if (KrajnjeVreme.SelectedDate == null)
+            {
+                for (int i = 0; i < trlista.Count; i++)
+                    if (trlista[i].vreme < PocetnoVreme.SelectedDate)
+                    {
+                        trlista.RemoveAt(i);
+                        i -= 1;
+                    }
+            }
+            else if (KrajnjeVreme.SelectedDate != null)
+                if (PocetnoVreme.SelectedDate <= KrajnjeVreme.SelectedDate)
+                {
+                    for (int j = 0; j < trlista.Count; j++)
+                        if (trlista[j].vreme < PocetnoVreme.SelectedDate || trlista[j].vreme > KrajnjeVreme.SelectedDate)
+                        {
+                            trlista.RemoveAt(j);
+                            j -= 1;
+                        }
+                }
+                else
+                    MessageBox.Show("Stavili ste nepostojece granice vremena.");
+            dgArhiva.ItemsSource = null;
+            dgArhiva.ItemsSource = trlista;
+        }
 
-
-           
-
+        private void KrajnjeVreme_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //trlista.Clear();
+            SkloniNepotrebne();
+            if (PocetnoVreme.SelectedDate == null)
+            {
+                for (int i = 0; i < trlista.Count; i++)
+                    if (trlista[i].vreme > KrajnjeVreme.SelectedDate)
+                    {
+                        trlista.RemoveAt(i);
+                        i -= 1;
+                    }
+            }
+            else if (PocetnoVreme.SelectedDate != null)
+                if (PocetnoVreme.SelectedDate <= KrajnjeVreme.SelectedDate)
+                {
+                    for (int i = 0; i < trlista.Count; i++)
+                        if (trlista[i].vreme < PocetnoVreme.SelectedDate || trlista[i].vreme > KrajnjeVreme.SelectedDate)
+                        {
+                            trlista.RemoveAt(i);
+                            i -= 1;
+                        }
+                }
+                else
+                    MessageBox.Show("Stavili ste nepostojece granice vremena.");
+            dgArhiva.ItemsSource = null;
+            dgArhiva.ItemsSource = trlista;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

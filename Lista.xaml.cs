@@ -131,16 +131,22 @@ namespace WPFCLEAN
                 dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
             dodaniposlovi += 1;
         }
-    private void chkSelectAll_Checked(object sender, RoutedEventArgs e)
+        private void chkSelectAll_Checked(object sender, RoutedEventArgs e)
         {
-            foreach(MoguciPosao p in dgDP.ItemsSource)
+            foreach (MoguciPosao p in dnevniposlovi)
+            {
                 p.Stiklirano = true;
+            }
+            dgDP.ItemsSource = null;
+            dgDP.ItemsSource = dnevniposlovi;
         }
 
         private void chkSelectAll_Unchecked(object sender, RoutedEventArgs e)
         {
-            foreach (MoguciPosao p in dgDP.ItemsSource)
+            foreach (MoguciPosao p in dnevniposlovi)
                 p.Stiklirano = false;
+            dgDP.ItemsSource = null;
+            dgDP.ItemsSource = dnevniposlovi;
         }
 
         private void potvrdi_Click(object sender, RoutedEventArgs e)
@@ -178,6 +184,6 @@ namespace WPFCLEAN
             if(dodaniposlovi > 0)
                 foreach(MoguciPosao bp in brzalista)
                     dnevniposlovi.Add(bp);
-        }   
+        }
     }
 }

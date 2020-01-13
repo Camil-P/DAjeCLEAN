@@ -20,7 +20,6 @@ namespace WPFCLEAN
     /// </summary>
     public partial class Account : Window
     {
-        private int brojacnaloga = 0;
         ObservableCollection<Nalog> listaNaloga = new ObservableCollection<Nalog>();
         public Account()
         {
@@ -63,6 +62,16 @@ namespace WPFCLEAN
             }
             else
                 MessageBox.Show("Morate selektovati nalog.");
+        }
+
+        private void dgAcc_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ClickCount == 2)
+            {
+                Registracija prozorRegistracije = new Registracija();
+                prozorRegistracije.DataContext = dgAcc.SelectedItem;
+                prozorRegistracije.Visibility = Visibility.Visible;
+            }
         }
     }
 }

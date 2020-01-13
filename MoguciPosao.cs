@@ -27,8 +27,7 @@ namespace WPFCLEAN
             set
             {
                 _stiklirano = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("Stiklirano"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Stiklirano"));
             }
         }
         public MoguciPosao(string t, bool s)

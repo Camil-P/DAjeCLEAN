@@ -25,8 +25,11 @@ namespace WPFCLEAN
         {
             InitializeComponent();
             if (!Login.sef)
+            {
                 tablaBtn.Visibility = Visibility.Hidden;
-
+                listaBtn.Visibility = Visibility.Hidden;
+                stampacBtn.Visibility = Visibility.Hidden;
+            }
             EFDataProvider.RefreshujPoslove();
         }
 
@@ -40,16 +43,8 @@ namespace WPFCLEAN
         #endregion
         private void listaBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Login.sef)
-            {
-                OdlukaAPiTS ProzorOdluke = new OdlukaAPiTS();
-                ProzorOdluke.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                Lista prozorLista = new Lista();
-                prozorLista.Visibility = Visibility.Visible;
-            }
+            Arhiva prozorArhive = new Arhiva();
+            prozorArhive.Visibility = Visibility.Visible;
         }
 
         #region Pojedinacni_Pregled
@@ -80,6 +75,13 @@ namespace WPFCLEAN
         {
             Account prozorAcc = new Account();
             prozorAcc.Visibility = Visibility.Visible;
+        }
+
+        private void DodajBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.privremeni = "Sve";
+            Lista ProzorListe = new Lista();
+            ProzorListe.Visibility = Visibility.Visible;
         }
     }
 }

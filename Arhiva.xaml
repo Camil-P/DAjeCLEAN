@@ -7,13 +7,12 @@
         mc:Ignorable="d"
         Title="Arhiva" Height="450" Width="800">
     <DockPanel>
-        <UniformGrid Columns="6" Rows="1" DockPanel.Dock="Top">
-            <Label Content="Od: "/>
-            <DatePicker Name="PocetnoVreme" />
-            <Label Content="Do: " />
-            <DatePicker Name="KrajnjeVreme"/>
-            <Button Content="Potvrdi" Click="Button_Click"/>
-            <Button Content="Ispisi Sve" Click="Button_Click_1"/>
+        <UniformGrid Columns="5" Rows="1" DockPanel.Dock="Top">
+            <Label Content="Od: (mm/dd/gggg)"/>
+            <DatePicker Name="PocetnoVreme" SelectedDateChanged="PocetnoVreme_SelectedDateChanged" />
+            <Label Content="Do: (mm/dd/gggg)" />
+            <DatePicker Name="KrajnjeVreme" SelectedDateChanged="KrajnjeVreme_SelectedDateChanged"/>
+            <Button Content="Svi poslovi" Click="Button_Click_1"/>
         </UniformGrid>
         <DataGrid DockPanel.Dock="Top" Name="dgArhiva" CanUserAddRows ="False" FontSize ="25" 
                             AutoGenerateColumns="False">

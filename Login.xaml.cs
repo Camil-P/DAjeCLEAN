@@ -75,6 +75,8 @@ namespace WPFCLEAN
                     Glavniprozor.Visibility = Visibility.Visible;
                     this.Close();
                 }
+                else
+                    MessageBox.Show("Uneli ste pogresnu sifru.");
             }
         }
         private void Napuni()
@@ -82,6 +84,42 @@ namespace WPFCLEAN
             var trosobe = EFDataProvider.GetNalozi();
             foreach (Nalog trosoba in trosobe)
                 osobe.Add(trosoba);
+        }
+
+        private void txtSifra_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                if (PraznoPolje())
+                {
+                    MessageBox.Show("Polje za sifru je prazno!");
+                }
+                else
+                {
+
+                    bool provera = false;
+                    foreach (var korisnik in osobe)
+                    {
+                        if (korisnik.password == txtSifra.Password)
+                        {
+                            if (cb.Text == "Bendza")
+                                sef = true;
+                            else
+                                sef = false;
+
+                            provera = true;
+                        }
+                    }
+                    if (provera == true)
+                    {
+                        MainWindow Glavniprozor = new MainWindow();
+                        Glavniprozor.Visibility = Visibility.Visible;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Uneli ste pogresnu sifru.");
+                }
+            }
         }
     }
 }

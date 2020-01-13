@@ -12,7 +12,7 @@
 
             <Label Content="LOG IN" HorizontalAlignment="Center" FontSize="40" FontWeight="Bold" Foreground="#FF95F4E5"/>
             <ComboBox Name="cb" FontSize="35" SelectionChanged="cb_SelectionChanged"/>
-            <PasswordBox Name="txtSifra" PasswordChar="*" FontSize="30"/>
+            <PasswordBox Name="txtSifra" PasswordChar="*" FontSize="30" Keyboard.PreviewKeyDown="txtSifra_PreviewKeyDown"/>
             
             <Button Name="btPotvrdi" Content="Prijavi se" FontSize="40" Margin="5 15 5 0" Click="btPotvrdi_Click"/>
         </StackPanel>

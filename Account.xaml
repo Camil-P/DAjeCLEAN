@@ -14,7 +14,8 @@
         </UniformGrid>
         
         <DataGrid Name="dgAcc" FontSize="20" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" 
-                  CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single" ColumnWidth="*">
+                  CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single" ColumnWidth="*"
+                  Mouse.PreviewMouseDown="dgAcc_PreviewMouseDown" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Korisnicko ime" Binding="{Binding username}"/>
                 <DataGridTextColumn Header="Šifra" Binding="{Binding password}"/>
