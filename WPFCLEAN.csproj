@@ -181,11 +181,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resursi\background.png" />
-    <Resource Include="Resursi\I.png" />
-    <Resource Include="Resursi\II.png" />
-    <Resource Include="Resursi\III.png" />
-    <Resource Include="Resursi\IV.png" />
     <Resource Include="Resursi\Kontejneri.png" />
     <Resource Include="Resursi\List.png" />
     <Resource Include="Resursi\logoutBTN.png" />
@@ -194,14 +189,13 @@
     <Resource Include="Resursi\Pranje.png" />
     <Resource Include="Resursi\printerr.png" />
     <Resource Include="Resursi\treeLight.png" />
-    <Resource Include="Resursi\V.png" />
-    <Resource Include="Resursi\VI.png" />
     <Resource Include="Resursi\Čišćenje.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="background.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -212,6 +206,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resursi\background.png" />
+    <None Include="Resursi\pranjedirty.png" />
+    <None Include="Resursi\kontejnerdirty.png" />
+    <None Include="Resursi\ciscenjedirty.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

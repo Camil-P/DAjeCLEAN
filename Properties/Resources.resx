@@ -121,17 +121,11 @@
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resursi\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="I" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resursi\I.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ciscenjedirty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resursi\ciscenjedirty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="II" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resursi\II.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="III" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resursi\III.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IV" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resursi\IV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kontejnerdirty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resursi\kontejnerdirty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Kontejneri" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resursi\Kontejneri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,17 +145,14 @@
   <data name="Pranje" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resursi\Pranje.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pranjedirty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resursi\pranjedirty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="printerr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resursi\printerr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="treeLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resursi\treeLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="V" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resursi\V.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resursi\VI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Čišćenje" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resursi\Čišćenje.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

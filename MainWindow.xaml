@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:cal="http://www.caliburnproject.org" x:Class="WPFCLEAN.MainWindow"
         mc:Ignorable="d"
-        Title="DAjeCLEAN" Height="750" Width="700" WindowStartupLocation="CenterScreen" SizeToContent="Width" Foreground="{x:Null}">
+        Title="DAjeCLEAN" Height="750" Width="716.5" WindowStartupLocation="CenterScreen" SizeToContent="Width" Foreground="{x:Null}">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,7 +19,7 @@
 
 
     <Window.Background>
-        <ImageBrush ImageSource="Resursi/background.png" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="background.png" Stretch="UniformToFill"/>
     </Window.Background>
 
 
@@ -55,7 +55,7 @@
                     <ImageBrush ImageSource="Resursi/List.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="DodajBtn" Style="{StaticResource MyButton}" Width="94" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="189" Canvas.Top="279" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DodajBtn_Click">
+            <Button x:Name="DodajBtn" Style="{StaticResource MyButton}" Width="94" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="189" Canvas.Top="279" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/plusicon.png"/>
                 </Button.Background>
@@ -68,45 +68,14 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="Plan1" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="110" Canvas.Left="74" Canvas.Top="475" Foreground="{x:Null}" BorderBrush="{x:Null}" >
-                <Button.Background>
-                    <ImageBrush ImageSource="Resursi/I.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="Plan2" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="110" Canvas.Left="189" Canvas.Top="475" Foreground="{x:Null}" BorderBrush="{x:Null}" >
-                <Button.Background>
-                    <ImageBrush ImageSource="Resursi/II.png"/>
-                </Button.Background>
-            </Button>
 
-            <Button x:Name="Plan3" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="110" Canvas.Left="299" Canvas.Top="475" Foreground="{x:Null}" BorderBrush="{x:Null}" >
-                <Button.Background>
-                    <ImageBrush ImageSource="Resursi/III.png"/>
-                </Button.Background>
-            </Button>
 
-            <Button x:Name="Plan4" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="110" Canvas.Left="409" Canvas.Top="475" Foreground="{x:Null}" BorderBrush="{x:Null}" >
-                <Button.Background>
-                    <ImageBrush ImageSource="Resursi/IV.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="Plan5" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="110" Canvas.Left="519" Canvas.Top="475" Foreground="{x:Null}" BorderBrush="{x:Null}" >
-                <Button.Background>
-                    <ImageBrush ImageSource="Resursi/V.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="Plan6" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="110" Canvas.Left="629" Canvas.Top="475" Foreground="{x:Null}" BorderBrush="{x:Null}" >
-                <Button.Background>
-                    <ImageBrush ImageSource="Resursi/VI.png"/>
-                </Button.Background>
-            </Button>
 
             <Button x:Name="ciscenjeBtn" Style="{StaticResource MyButton}" Height="110" Width="156" Canvas.Left="460" Canvas.Top="74" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="ciscenjeBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/Čišćenje.png"/>
                 </Button.Background>
+                <Canvas Height="100" Width="100"/>
             </Button>
 
             <Button x:Name="PranjeBtn" Style="{StaticResource MyButton}" Height="110" Width="156" Canvas.Left="616" Canvas.Top="162" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="PranjeBtn_Click">
@@ -122,7 +91,12 @@
             </Button>
 
 
+            <Canvas x:Name="Mapa" Width="824" Height="397" Canvas.Top="609">
+
+            </Canvas>
+
         </Canvas>
+
 
     </Viewbox>
 

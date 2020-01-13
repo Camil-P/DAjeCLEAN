@@ -83,9 +83,9 @@ namespace WPFCLEAN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap I {
+        public static System.Drawing.Bitmap ciscenjedirty {
             get {
-                object obj = ResourceManager.GetObject("I", resourceCulture);
+                object obj = ResourceManager.GetObject("ciscenjedirty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,29 +93,9 @@ namespace WPFCLEAN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap II {
+        public static System.Drawing.Bitmap kontejnerdirty {
             get {
-                object obj = ResourceManager.GetObject("II", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap III {
-            get {
-                object obj = ResourceManager.GetObject("III", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap IV {
-            get {
-                object obj = ResourceManager.GetObject("IV", resourceCulture);
+                object obj = ResourceManager.GetObject("kontejnerdirty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +163,16 @@ namespace WPFCLEAN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap pranjedirty {
+            get {
+                object obj = ResourceManager.GetObject("pranjedirty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap printerr {
             get {
                 object obj = ResourceManager.GetObject("printerr", resourceCulture);
@@ -196,26 +186,6 @@ namespace WPFCLEAN.Properties {
         public static System.Drawing.Bitmap treeLight {
             get {
                 object obj = ResourceManager.GetObject("treeLight", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap V {
-            get {
-                object obj = ResourceManager.GetObject("V", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VI {
-            get {
-                object obj = ResourceManager.GetObject("VI", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
