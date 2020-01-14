@@ -24,6 +24,5 @@ namespace WPFCLEAN
             password = p;
             imePrezime = ip;
         }
-        public Nalog() { }
     }
 }
