@@ -63,12 +63,6 @@ namespace WPFCLEAN
             prozorAcc.Visibility = Visibility.Visible;
         }
 
-        private void DodajBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow.privremeni = "Sve";
-            Lista ProzorListe = new Lista();
-            ProzorListe.Visibility = Visibility.Visible;
-        }
         private void PranjeBtn_Click(object sender, RoutedEventArgs e)
         {
             Mapa.Children.Clear();
@@ -222,6 +216,13 @@ namespace WPFCLEAN
                     break;
 
             }
+        }
+
+        private void DodajBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow.privremeni = "Sve";
+            Lista ProzorListe = new Lista();
+            ProzorListe.Visibility = Visibility.Visible;
         }
     }
 }

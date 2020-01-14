@@ -55,7 +55,7 @@
                     <ImageBrush ImageSource="Resursi/List.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="DodajBtn" Style="{StaticResource MyButton}" Width="94" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="189" Canvas.Top="279" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Button x:Name="DodajBtn" Style="{StaticResource MyButton}" Width="94" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="189" Canvas.Top="279" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DodajBtn_Click_1">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/plusicon.png"/>
                 </Button.Background>
