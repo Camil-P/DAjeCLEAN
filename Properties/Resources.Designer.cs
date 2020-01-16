@@ -123,6 +123,26 @@ namespace WPFCLEAN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap listici {
+            get {
+                object obj = ResourceManager.GetObject("listici", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap loginslika {
+            get {
+                object obj = ResourceManager.GetObject("loginslika", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap logoutBTN {
             get {
                 object obj = ResourceManager.GetObject("logoutBTN", resourceCulture);
@@ -186,6 +206,16 @@ namespace WPFCLEAN.Properties {
         public static System.Drawing.Bitmap treeLight {
             get {
                 object obj = ResourceManager.GetObject("treeLight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap white_down_arrow_png_10 {
+            get {
+                object obj = ResourceManager.GetObject("white_down_arrow_png_10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

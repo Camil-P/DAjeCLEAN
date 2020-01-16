@@ -18,7 +18,7 @@
     </Window.Resources>
     <DockPanel>
         <DockPanel.Background>
-            <ImageBrush ImageSource="listici.png" Stretch="Uniform"/>
+            <ImageBrush ImageSource="Resursi/listici.png" Stretch="Uniform"/>
         </DockPanel.Background>
         <StackPanel DockPanel.Dock="Bottom"  Height="130"  Width="381" HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Horizontal" Margin="233,0,178,0" >
             <Button  x:Name="Otkazi" Style="{StaticResource MyButton2}" HorizontalAlignment="Center"  Content="Otkaži" Height="70" Width="150" Foreground="LightGray" FontSize="40" Margin="20" FontFamily="Arial" Click="Otkazi_Click" FontWeight="Normal" mah:ControlsHelper.ContentCharacterCasing="Normal">
