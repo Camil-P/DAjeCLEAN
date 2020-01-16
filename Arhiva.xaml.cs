@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Printing;
+using System.IO;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -213,6 +215,34 @@ namespace WPFCLEAN
             ispisvega = true;
             PocetnoVreme.SelectedDate = null;
             KrajnjeVreme.SelectedDate = null;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            // printDlg.PrintVisual(dgArhiva, "Grid Printing.");
+            if (printDlg.ShowDialog() == true)
+            {
+                //get selected printer capabilities
+                PrintCapabilities capabilities = printDlg.PrintQueue.GetPrintCapabilities(printDlg.PrintTicket);
+
+                //get scale of the print wrt to screen of WPF visual
+                double scale = Math.Min(capabilities.PageImageableArea.ExtentWidth / this.ActualWidth, capabilities.PageImageableArea.ExtentHeight /
+                               this.ActualHeight);
+
+                //Transform the Visual to scale
+                dgArhiva.LayoutTransform = new ScaleTransform(scale, scale);
+
+                //get the size of the printer page
+                Size sz = new Size(capabilities.PageImageableArea.ExtentWidth, capabilities.PageImageableArea.ExtentHeight);
+
+                //update the layout of the visual to the printer page size.
+                dgArhiva.Measure(sz);
+                dgArhiva.Arrange(new Rect(new Point(capabilities.PageImageableArea.OriginWidth, capabilities.PageImageableArea.OriginHeight), sz));
+
+                //now print the visual to printer to fit on the one page.
+                printDlg.PrintVisual(dgArhiva, "First Fit to Page WPF Print");
+            }
         }
     }
 }

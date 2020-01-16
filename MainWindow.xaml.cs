@@ -85,8 +85,11 @@ namespace WPFCLEAN
             Mapa.Children.Add(imageControl);
             //    ControlPaint.DrawButton(e.Graphics.DrawImage(lokacija, x, y), Rectangle, ButtonState.Flat);
             //  zaprljane.Children.Add(lokacija);
-       
-         }
+
+            MainWindow.privremeni = "Pranje";
+            Lista ProzorListe = new Lista();
+            ProzorListe.Visibility = Visibility.Visible;
+        }
 
         private void ciscenjeBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -109,6 +112,9 @@ namespace WPFCLEAN
             imageControl.Source = imgSource;
             Mapa.Children.Add(imageControl);
 
+            MainWindow.privremeni = "Ciscenje";
+            Lista ProzorListe = new Lista();
+            ProzorListe.Visibility = Visibility.Visible;
         }
 
         private void KontejneriBtn_Click(object sender, RoutedEventArgs e)
@@ -132,6 +138,9 @@ namespace WPFCLEAN
             imageControl.Source = imgSource;
             Mapa.Children.Add(imageControl);
 
+            MainWindow.privremeni = "Kontejneri";
+            Lista ProzorListe = new Lista();
+            ProzorListe.Visibility = Visibility.Visible;
         }
         private void NapuniDnevno()
         {

@@ -26,8 +26,8 @@ namespace WPFCLEAN
         }
     
         public virtual DbSet<ArhiviraniPosao> ArhiviraniPosaos { get; set; }
-        public virtual DbSet<MoguciPosao> MoguciPosaos { get; set; }
         public virtual DbSet<Nalog> Nalogs { get; set; }
         public virtual DbSet<Poruka> Porukas { get; set; }
+        public virtual DbSet<MoguciPosao> MoguciPosaos { get; set; }
     }
 }

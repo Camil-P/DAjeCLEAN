@@ -53,6 +53,15 @@ namespace WPFCLEAN
                     }
                 }
             }
+            else 
+            {
+                for(int i = 0; i<dnevniposlovi.Count; i++)
+                    if(dnevniposlovi[i].tip != "Kontejneri")
+                    {
+                        dnevniposlovi.RemoveAt(i);
+                        i -= 1;
+                    }
+            }
             dgDP.ItemsSource = dnevniposlovi;
         }
         private void NapuniDnevno()
@@ -118,18 +127,20 @@ namespace WPFCLEAN
 
         private void dodaj_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.privremeni == "Sve")
-                dnevniposlovi.Add(new MoguciPosao(true));
-
-            else if (MainWindow.privremeni == "Ciscenje")
-                dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
-
-            else if (MainWindow.privremeni == "Pranje")
-                dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
-
-            else
-                dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
-            dodaniposlovi += 1;
+            switch (MainWindow.privremeni) {
+                case "Sve":
+                    dnevniposlovi.Add(new MoguciPosao(true));
+                    break;
+                case "Ciscenje":
+                    dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
+                    break;
+                case "Pranje":
+                    dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
+                    break;
+                case "Kontejneri":
+                    dnevniposlovi.Add(new MoguciPosao(MainWindow.privremeni, true));
+                    break;
+            }
         }
         private void chkSelectAll_Checked(object sender, RoutedEventArgs e)
         {

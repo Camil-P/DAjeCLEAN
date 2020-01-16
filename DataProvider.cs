@@ -137,7 +137,7 @@ namespace WPFCLEAN
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                MoguciPosao tmp = cnt.MoguciPosaos.Where(x => x.ulica == ulica.ulica).FirstOrDefault();
+                MoguciPosao tmp = cnt.MoguciPosaos.Where(x => x.IDUlice == ulica.IDUlice).FirstOrDefault();
                 tmp.povrsina = ulica.povrsina;
                 tmp.planp = ulica.planp;
                 tmp.ulica = ulica.ulica;
@@ -159,7 +159,7 @@ namespace WPFCLEAN
                         ddplan = "F";
                         break;
                     case "Tuesday":
-                        dplan = "C";
+                        dplan = "B";
                         break;
                     case "Wednesday":
                         dplan = "C";
@@ -174,7 +174,9 @@ namespace WPFCLEAN
                 foreach (MoguciPosao p in cnt.MoguciPosaos)
                 {
                     if (p.planp != dplan && p.planp != ddplan)
-                    p.Stiklirano = false;
+                    {
+                        p.Stiklirano = false;
+                    }
                 }
                 cnt.SaveChanges();
             }
@@ -210,11 +212,11 @@ namespace WPFCLEAN
             }
         }
 
-        static public MoguciPosao GetMoguciPosao(string ulica)
+        static public MoguciPosao GetMoguciPosao(int ID)
         {
             using (DataBaseEntities cnt = new DataBaseEntities())
             {
-                return cnt.MoguciPosaos.Where(x => x.ulica == ulica).FirstOrDefault();
+                return cnt.MoguciPosaos.Where(x => x.IDUlice == ID).FirstOrDefault();
             }
         }
 

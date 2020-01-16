@@ -18,6 +18,9 @@ namespace WPFCLEAN
         public string username { get; set; }
         public string password { get; set; }
         public string imePrezime { get; set; }
+
+        public Nalog() { }
+
         public Nalog(string u, string p, string ip)
         {
             username = u;
