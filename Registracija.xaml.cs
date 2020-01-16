@@ -58,6 +58,7 @@ namespace WPFCLEAN
 
                         Osobeplus.Add(novaosoba);
                         EFDataProvider.DodajNalog(novaosoba);
+                        MessageBox.Show("Uspesno ste dodali novi nalog!");
                         this.Close();
                     }
                     else

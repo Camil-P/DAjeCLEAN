@@ -11,8 +11,8 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Hover.xaml"/>
-                <ResourceDictionary Source="/Hover.xaml"/>
+                <ResourceDictionary Source="Hover.xaml"/>
+              
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -21,7 +21,7 @@
             <ImageBrush ImageSource="Resursi/listici.png" Stretch="Uniform"/>
         </DockPanel.Background>
         <StackPanel DockPanel.Dock="Bottom"  Height="130"  Width="381" HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Horizontal" Margin="233,0,178,0" >
-            <Button  x:Name="Otkazi" Style="{StaticResource MyButton2}" HorizontalAlignment="Center"  Content="Otkaži" Height="70" Width="150" Foreground="LightGray" FontSize="40" Margin="20" FontFamily="Arial" Click="Otkazi_Click" FontWeight="Normal" mah:ControlsHelper.ContentCharacterCasing="Normal">
+            <Button  x:Name="Otkazi" Click="Otkazi_Click" Style="{StaticResource MyButton2}" HorizontalAlignment="Center"  Content="Otkaži" Height="70" Width="150" Foreground="LightGray" FontSize="40" Margin="20" FontFamily="Arial" FontWeight="Normal" mah:ControlsHelper.ContentCharacterCasing="Normal">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0.496"/>
@@ -30,7 +30,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="Potvrdi" Style="{StaticResource MyButton2}" Height="70" Width="150" HorizontalAlignment="Right" Content="Potvrdi" Foreground="LightGray" FontSize="40" Margin="20" FontFamily="Arial" Click="Potvrdi_Click" FontWeight="Normal" mah:ControlsHelper.ContentCharacterCasing="Normal" >
+            <Button x:Name="Potvrdi" Click="Potvrdi_Click" Style="{StaticResource MyButton2}" Height="70" Width="150" HorizontalAlignment="Right" Content="Potvrdi" Foreground="LightGray" FontSize="40" Margin="20" FontFamily="Arial" FontWeight="Normal" mah:ControlsHelper.ContentCharacterCasing="Normal" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0.496"/>

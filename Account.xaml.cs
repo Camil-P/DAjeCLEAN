@@ -22,11 +22,13 @@ namespace WPFCLEAN
     public partial class Account : MetroWindow
     {
         ObservableCollection<Nalog> listaNaloga = new ObservableCollection<Nalog>();
+        
         public Account()
         {
             InitializeComponent();
             NapuniNaloge();
             dgAcc.ItemsSource = listaNaloga;
+            
         }
         private void NapuniNaloge()
         {
@@ -35,20 +37,14 @@ namespace WPFCLEAN
                 listaNaloga.Add(trosoba);
         }
 
-        private void dodajacc_Click(object sender, RoutedEventArgs e)
-        {
-            Registracija prozorRegistracije = new Registracija();
-            //prozorRegistracije.DataContext = listaNaloga;
-            prozorRegistracije.Visibility = Visibility.Visible;
-        }
-
         private void izmeniacc_Click(object sender, RoutedEventArgs e)
         {
             if (dgAcc.SelectedItem != null)
             {
                 Registracija prozorRegistracije = new Registracija();
                 prozorRegistracije.DataContext = dgAcc.SelectedItem;
-                prozorRegistracije.Visibility = Visibility.Visible;
+                prozorRegistracije.Owner = this;
+                prozorRegistracije.ShowDialog();
             }
             else
                 MessageBox.Show("Morate selektovati nalog.");
@@ -73,6 +69,15 @@ namespace WPFCLEAN
                 prozorRegistracije.DataContext = dgAcc.SelectedItem;
                 prozorRegistracije.Visibility = Visibility.Visible;
             }
+        }
+
+        private void dodajacc_Click(object sender, RoutedEventArgs e)
+        {
+            Registracija prozorDodavanja = new Registracija();
+            //  Nalog nalog = new Nalog();
+            ObservableCollection<Nalog> sekuriti = new ObservableCollection<Nalog>();
+            prozorDodavanja.DataContext = sekuriti;
+            prozorDodavanja.Visibility = Visibility.Visible;
         }
     }
 }
