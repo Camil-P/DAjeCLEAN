@@ -49,7 +49,7 @@
     <DockPanel>
 
         <DataGrid Name="dgArhiva" AlternatingRowBackground="#FFEDEDED" CanUserAddRows ="False" 
-                        ColumnHeaderStyle="{StaticResource HeaderStyle}"    AutoGenerateColumns="False" Background="#FFA6A6A6"  SelectionChanged="dgArhiva_SelectionChanged" FontFamily="Arial" BorderBrush="White" RenderTransformOrigin="0.514,0" DockPanel.Dock="Top" FontSize="28" OpacityMask="{x:Null}">
+                        ColumnHeaderStyle="{StaticResource HeaderStyle}"    AutoGenerateColumns="False" Background="#FFA6A6A6"  SelectionChanged="dgArhiva_SelectionChanged" FontFamily="Arial" BorderBrush="White" RenderTransformOrigin="0.514,0" DockPanel.Dock="Top" FontSize="28" >
 
 
 
@@ -64,13 +64,13 @@
                         </LinearGradientBrush>
                     </DataGridTextColumn.Foreground>
                     <DataGridTextColumn.Header>
-                        <ComboBox Name="comboTip" SelectionChanged="tip_SelectionChanged" BorderBrush="White" FontSize="20" Foreground="#f5f5f6" Width="37" VerticalAlignment="Center" HorizontalAlignment="Right" IsSynchronizedWithCurrentItem="False" IsReadOnly="True" Cursor="Hand" FontFamily="Arial" Controls:TextBoxHelper.WatermarkAlignment="Right" Height="37">
+                        <ComboBox Name="comboTip" SelectionChanged="tip_SelectionChanged" BorderBrush="White" FontSize="20" Foreground="#f5f5f6" Width="40" VerticalAlignment="Center" HorizontalAlignment="Right" IsSynchronizedWithCurrentItem="False" IsReadOnly="True" Cursor="Hand" FontFamily="Arial" Controls:TextBoxHelper.WatermarkAlignment="Right" Height="50">
                             <ComboBox.Resources>
 
 
                             </ComboBox.Resources>
                             <ComboBox.Background>
-                                <ImageBrush ImageSource="Resursi/white-down-arrow-png-10.png" AlignmentX="Right"/>
+                                <ImageBrush ImageSource="white-down-arrow-png-10.png" AlignmentX="Right"/>
                             </ComboBox.Background>
                         </ComboBox>
                     </DataGridTextColumn.Header>
