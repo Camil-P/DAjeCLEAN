@@ -53,14 +53,16 @@ namespace WPFCLEAN
         private void listaBtn_Click(object sender, RoutedEventArgs e)
         {
             Arhiva prozorArhive = new Arhiva();
-            prozorArhive.Visibility = Visibility.Visible;
+            prozorArhive.Owner = this;
+            prozorArhive.ShowDialog();
         }
 
      
         private void tablaBtn_Click(object sender, RoutedEventArgs e)
         {
             Account prozorAcc = new Account();
-            prozorAcc.Visibility = Visibility.Visible;
+            prozorAcc.Owner = this;
+            prozorAcc.ShowDialog();
         }
 
         private void PranjeBtn_Click(object sender, RoutedEventArgs e)
@@ -88,7 +90,8 @@ namespace WPFCLEAN
 
             MainWindow.privremeni = "Pranje";
             Lista ProzorListe = new Lista();
-            ProzorListe.Visibility = Visibility.Visible;
+            ProzorListe.Owner = this;
+            ProzorListe.ShowDialog();
         }
 
         private void ciscenjeBtn_Click(object sender, RoutedEventArgs e)
@@ -114,12 +117,13 @@ namespace WPFCLEAN
 
             MainWindow.privremeni = "Ciscenje";
             Lista ProzorListe = new Lista();
-            ProzorListe.Visibility = Visibility.Visible;
+            ProzorListe.Owner = this;
+            ProzorListe.ShowDialog();
         }
 
         private void KontejneriBtn_Click(object sender, RoutedEventArgs e)
         {
-            Mapa.Children.Clear();
+            /*Mapa.Children.Clear();
             DrawingGroup zaprljane = new DrawingGroup();
             foreach (MoguciPosao r in dnevniposloviKontejneri)
             {
@@ -136,11 +140,12 @@ namespace WPFCLEAN
             Image imageControl = new Image();
             imageControl.Stretch = Stretch.None;
             imageControl.Source = imgSource;
-            Mapa.Children.Add(imageControl);
+            Mapa.Children.Add(imageControl);*/
 
             MainWindow.privremeni = "Kontejneri";
             Lista ProzorListe = new Lista();
-            ProzorListe.Visibility = Visibility.Visible;
+            ProzorListe.Owner = this;
+            ProzorListe.ShowDialog();
         }
         private void NapuniDnevno()
         {
@@ -231,7 +236,8 @@ namespace WPFCLEAN
         {
             MainWindow.privremeni = "Sve";
             Lista ProzorListe = new Lista();
-            ProzorListe.Visibility = Visibility.Visible;
+            ProzorListe.Owner = this;
+            ProzorListe.ShowDialog();
         }
     }
 }
