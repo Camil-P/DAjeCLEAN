@@ -211,7 +211,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="white-down-arrow-png-10.png" />
+    <Resource Include="Resursi\white-down-arrow-png-10.png" />
+    <Resource Include="Resursi\loginslika.png" />
+    <Resource Include="loginslika.png" />
+    <Resource Include="Resursi\listici.png" />
     <Resource Include="background.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

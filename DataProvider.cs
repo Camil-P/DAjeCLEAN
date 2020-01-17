@@ -156,13 +156,14 @@ namespace WPFCLEAN
                 {
                     case "Monday":
                         dplan = "A";
-                        ddplan = "F";
+                        ddplan = "E";
                         break;
                     case "Tuesday":
                         dplan = "B";
                         break;
                     case "Wednesday":
                         dplan = "A";
+                        ddplan = "F";
                         break;
                     case "Thursday":
                         dplan = "C";

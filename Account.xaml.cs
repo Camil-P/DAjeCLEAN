@@ -38,7 +38,7 @@ namespace WPFCLEAN
         private void dodajacc_Click(object sender, RoutedEventArgs e)
         {
             Registracija prozorRegistracije = new Registracija();
-            prozorRegistracije.DataContext = listaNaloga;
+            //prozorRegistracije.DataContext = listaNaloga;
             prozorRegistracije.Visibility = Visibility.Visible;
         }
 
