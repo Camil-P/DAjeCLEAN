@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace WPFCLEAN
     /// <summary>
     /// Interaction logic for Account.xaml
     /// </summary>
-    public partial class Account : Window
+    public partial class Account : MetroWindow
     {
         ObservableCollection<Nalog> listaNaloga = new ObservableCollection<Nalog>();
         public Account()

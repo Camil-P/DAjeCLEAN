@@ -22,6 +22,8 @@ namespace WPFCLEAN
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    ///  public void GetCords() { object some = this.WindowStartupLocation; }
+  
     public partial class MainWindow : MetroWindow
     {
         public static string privremeni;
@@ -31,9 +33,11 @@ namespace WPFCLEAN
         ObservableCollection<MoguciPosao> dnevniposloviPranje = new ObservableCollection<MoguciPosao>();
         ObservableCollection<MoguciPosao> dnevniposloviCiscenje = new ObservableCollection<MoguciPosao>();
         ObservableCollection<MoguciPosao> dnevniposloviKontejneri = new ObservableCollection<MoguciPosao>();
+       
         public MainWindow()
         {
             InitializeComponent();
+            
             if (!Login.sef)
             {
                 tablaBtn.Visibility = Visibility.Hidden;
@@ -64,6 +68,7 @@ namespace WPFCLEAN
             Account prozorAcc = new Account();
             prozorAcc.Visibility = Visibility.Visible;
         }
+        
 
         private void PranjeBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -90,6 +95,9 @@ namespace WPFCLEAN
 
             MainWindow.privremeni = "Pranje";
             Lista ProzorListe = new Lista();
+            ProzorListe.Top = this.Top;
+            ProzorListe.Left = this.Left - 100;
+            ProzorListe.Owner = this;
             ProzorListe.Visibility = Visibility.Visible;
         }
 
@@ -116,6 +124,9 @@ namespace WPFCLEAN
 
             MainWindow.privremeni = "Ciscenje";
             Lista ProzorListe = new Lista();
+            ProzorListe.Top = this.Top;
+            ProzorListe.Left = this.Left - 100;
+            ProzorListe.Owner = this;
             ProzorListe.Visibility = Visibility.Visible;
         }
 
@@ -144,6 +155,9 @@ namespace WPFCLEAN
 
             MainWindow.privremeni = "Kontejneri";
             Lista ProzorListe = new Lista();
+            ProzorListe.Top = this.Top;
+            ProzorListe.Left = this.Left - 100;
+            ProzorListe.Owner = this;
             ProzorListe.Visibility = Visibility.Visible;
         }
         private void NapuniDnevno()
@@ -233,6 +247,7 @@ namespace WPFCLEAN
         {
             MainWindow.privremeni = "Sve";
             Lista ProzorListe = new Lista();
+            ProzorListe.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ProzorListe.Visibility = Visibility.Visible;
         }
     }

@@ -51,24 +51,24 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Button x:Name="tablaBtn" Style="{StaticResource MyButton}" Width="94" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Top="306" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="tablaBtn_Click">
+            <Button x:Name="tablaBtn" Style="{StaticResource MyButton2}" Width="94" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Top="306" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="tablaBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/notif.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="listaBtn" Style="{StaticResource MyButton}" Width="95" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="60" Canvas.Top="140" VerticalAlignment="Top" Click="listaBtn_Click">
+            <Button x:Name="listaBtn" Style="{StaticResource MyButton2}" Width="95" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="60" Canvas.Top="140" VerticalAlignment="Top" Click="listaBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/List.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="DodajBtn" Style="{StaticResource MyButton}" Width="94" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="148" Canvas.Top="248" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DodajBtn_Click_1">
+            <Button x:Name="DodajBtn" Style="{StaticResource MyButton2}" Width="94" Height="103" BorderBrush="{x:Null}" Foreground="{x:Null}" Canvas.Left="148" Canvas.Top="248" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DodajBtn_Click_1">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/plusicon.png"/>
                 </Button.Background>
 
             </Button>
 
-            <Button x:Name="logoutBtn" Style="{StaticResource MyButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="156" Canvas.Left="639" Canvas.Top="17" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="logoutBtn_Click" >
+            <Button x:Name="logoutBtn" Style="{StaticResource MyButton2}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="156" Canvas.Left="639" Canvas.Top="17" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="logoutBtn_Click" >
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/logoutBTN.png"/>
                 </Button.Background>
@@ -77,20 +77,20 @@
 
 
 
-            <Button x:Name="ciscenjeBtn" Style="{StaticResource MyButton}" Height="110" Width="156" Canvas.Left="460" Canvas.Top="74" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="ciscenjeBtn_Click">
+            <Button x:Name="ciscenjeBtn" Style="{StaticResource MyButton2}" Height="110" Width="156" Canvas.Left="460" Canvas.Top="74" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="ciscenjeBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/Čišćenje.png"/>
                 </Button.Background>
                 <Canvas Height="100" Width="100"/>
             </Button>
 
-            <Button x:Name="PranjeBtn" Style="{StaticResource MyButton}" Height="110" Width="156" Canvas.Left="616" Canvas.Top="162" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="PranjeBtn_Click">
+            <Button x:Name="PranjeBtn" Style="{StaticResource MyButton2}" Height="110" Width="156" Canvas.Left="616" Canvas.Top="162" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="PranjeBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/Pranje.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="KontejneriBtn" Style="{StaticResource MyButton}" Height="110" Width="156" Canvas.Left="460" Canvas.Top="272" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="KontejneriBtn_Click">
+            <Button x:Name="KontejneriBtn" Style="{StaticResource MyButton2}" Height="110" Width="156" Canvas.Left="460" Canvas.Top="272" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="KontejneriBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Resursi/Kontejneri.png"/>
                 </Button.Background>

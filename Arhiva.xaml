@@ -37,7 +37,7 @@
                 <Setter Property="VerticalAlignment" Value="Stretch" />
                 <Setter Property="HorizontalContentAlignment" Value="Center" />
                 <Setter Property="MinWidth" Value="0" />
-                <Setter Property="MinHeight" Value="30" />
+                <Setter Property="MinHeight" Value="50" />
                 <Setter Property="Cursor" Value="Hand" />
             </Style>
 
@@ -49,7 +49,7 @@
     <DockPanel>
 
         <DataGrid Name="dgArhiva" AlternatingRowBackground="#FFEDEDED" CanUserAddRows ="False" 
-                        ColumnHeaderStyle="{StaticResource HeaderStyle}"    AutoGenerateColumns="False" Background="#FFA6A6A6"  SelectionChanged="dgArhiva_SelectionChanged" FontFamily="Arial" BorderBrush="White" RenderTransformOrigin="0.514,0" DockPanel.Dock="Top" FontSize="30" OpacityMask="{x:Null}">
+                        ColumnHeaderStyle="{StaticResource HeaderStyle}"    AutoGenerateColumns="False" Background="#FFA6A6A6"  SelectionChanged="dgArhiva_SelectionChanged" FontFamily="Arial" BorderBrush="White" RenderTransformOrigin="0.514,0" DockPanel.Dock="Top" FontSize="28" OpacityMask="{x:Null}">
 
 
 
@@ -60,11 +60,11 @@
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0.157"/>
                             <GradientStop Color="Black" Offset="0.852"/>
-                            <GradientStop Color="#FF747474" Offset="0.505"/>
+                            <GradientStop Color="Black" Offset="0.505"/>
                         </LinearGradientBrush>
                     </DataGridTextColumn.Foreground>
                     <DataGridTextColumn.Header>
-                        <ComboBox Name="comboTip" SelectionChanged="tip_SelectionChanged" BorderBrush="White" Foreground="White" Width="23" VerticalAlignment="Center" HorizontalAlignment="Center" IsSynchronizedWithCurrentItem="False" IsReadOnly="True" Cursor="Hand">
+                        <ComboBox Name="comboTip" SelectionChanged="tip_SelectionChanged" BorderBrush="White" Foreground="White" Width="23" VerticalAlignment="Center" HorizontalAlignment="Center" IsSynchronizedWithCurrentItem="False" IsReadOnly="True" Cursor="Hand" FontFamily="Arial">
                             <ComboBox.Resources>
 
 
@@ -83,7 +83,7 @@
 
 
 
-            <Button Style="{StaticResource MyButton}"  Content="Stampaj" Click="Button_Click" Foreground="#FFDADADA" BorderThickness="3px" FontFamily="Arial"  FontSize="20" BorderBrush="#FFDADADA" Controls:ButtonHelper.CornerRadius="5" Controls:ButtonHelper.PreserveTextCase="True">
+            <Button Style="{StaticResource MyButton}"  Content="Štampaj" Click="Button_Click" Foreground="#FFDADADA" BorderThickness="3px" FontFamily="Arial"  FontSize="20" BorderBrush="#FFDADADA" Controls:ButtonHelper.CornerRadius="5" Controls:ButtonHelper.PreserveTextCase="True">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0.496"/>

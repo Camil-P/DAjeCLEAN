@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace WPFCLEAN
     /// <summary>
     /// Interaction logic for Lista.xaml
     /// </summary>
-    public partial class Lista : Window
+    public partial class Lista : MetroWindow 
     {
         ArhiviraniPosao odradjeniposao = new ArhiviraniPosao();
         ObservableCollection<MoguciPosao> dnevniposlovi = new ObservableCollection<MoguciPosao>();
@@ -27,7 +28,7 @@ namespace WPFCLEAN
         public Lista()
         {
             InitializeComponent();
-
+            this.
             NapuniDnevno();
             if(MainWindow.privremeni == "Sve")
                 dgDP.ItemsSource = dnevniposlovi;
