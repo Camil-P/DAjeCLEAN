@@ -5,21 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCLEAN"
         mc:Ignorable="d"
-        Title="Account" Height="450" Width="800">
+        Title="Account" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Hover.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <LinearGradientBrush x:Key="HeaderBrush"  EndPoint="0.5,1"  StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0.157"/>
+                <GradientStop Color="Black" Offset="0.852"/>
+                <GradientStop Color="#FF747474" Offset="0.505"/>
+            </LinearGradientBrush>
+
+
+            <LinearGradientBrush x:Key="HeaderBorderBrush" >
+                <GradientStop Color="White" Offset="1"/>
+
+            </LinearGradientBrush>
+            <Style x:Key="HeaderStyle" TargetType= "{x:Type DataGridColumnHeader}">
+                <Setter Property="Background" Value="{StaticResource HeaderBrush}" />
+                <Setter Property="Foreground" Value="#FFDADADA" />
+                <Setter Property="BorderBrush" Value="{StaticResource HeaderBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="MinWidth" Value="0" />
+                <Setter Property="MinHeight" Value="50" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Style>
+
+            <Style TargetType="{x:Type DataGridCell}">
+                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
     <DockPanel>
-        <UniformGrid DockPanel.Dock="Bottom" Columns="3" Rows="1" Margin="15">
-            <Button Name="dodajacc" Content="Dodaj nalog" FontSize="35" Margin="0 0 15 0" Click="dodajacc_Click" />
-            <Button Name="izmeniacc" Content="Izmeni nalog" FontSize="35" Margin="15 0 15 0" Click="izmeniacc_Click" />
-            <Button Name="izbrisiacc" Content="Izbrisi nalog" FontSize="35" Margin="15 0 0 0" Click="izbrisiacc_Click" />
+        <UniformGrid DockPanel.Dock="Bottom" Columns="3" Rows="1" Margin="0" Height="53" Background="Black">
+            <Button Name="dodajacc" Style="{StaticResource MyButton}" Content="Dodaj nalog" FontSize="30" Margin="0 0 15 0" Click="dodajacc_Click" HorizontalAlignment="Right" Width="239" Height="40" FontFamily="Arial" Foreground="#FFDADADA" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1"  StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Name="izmeniacc" Style="{StaticResource MyButton}" Content="Izmeni nalog" FontSize="30" Margin="15 0 15 0" Click="izmeniacc_Click" Height="40" FontFamily="Arial" Foreground="#FFDADADA" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1"  StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Name="izbrisiacc" Style="{StaticResource MyButton}" Content="Izbrisi nalog" FontSize="30" Margin="15 0 0 0" Click="izbrisiacc_Click" HorizontalAlignment="Left" Width="239" Height="40" FontFamily="Arial" Foreground="#FFDADADA" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1"  StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </UniformGrid>
-        
-        <DataGrid Name="dgAcc" FontSize="20" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" 
+
+        <DataGrid Name="dgAcc" AlternatingRowBackground="LightGray" ColumnHeaderStyle="{StaticResource HeaderStyle}" FontSize="30" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" 
                   CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single" ColumnWidth="*"
-                  Mouse.PreviewMouseDown="dgAcc_PreviewMouseDown" IsReadOnly="True">
+                  Mouse.PreviewMouseDown="dgAcc_PreviewMouseDown" IsReadOnly="True" FontFamily="Arial">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Korisnicko ime" Binding="{Binding username}"/>
-                <DataGridTextColumn Header="Šifra" Binding="{Binding password}"/>
-                <DataGridTextColumn Header="Ime i prezime" Binding="{Binding imePrezime}"/>
+                <DataGridTextColumn Header="Korisnicko ime" Binding="{Binding username}" FontFamily="Arial" FontSize="28"/>
+                <DataGridTextColumn Header="Šifra" Binding="{Binding password}" FontFamily="Arial" FontSize="28"/>
+                <DataGridTextColumn Header="Ime i prezime" Binding="{Binding imePrezime}" FontFamily="Arial" FontSize="28"/>
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

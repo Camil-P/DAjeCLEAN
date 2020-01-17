@@ -5,18 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCLEAN"
         mc:Ignorable="d"
-        Title="Lista" Height="450" Width="800">
+        Title="Lista" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Hover.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <LinearGradientBrush x:Key="HeaderBrush"  EndPoint="0.5,1"  StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0.157"/>
+                <GradientStop Color="Black" Offset="0.852"/>
+                <GradientStop Color="#FF747474" Offset="0.505"/>
+            </LinearGradientBrush>
+
+
+            <LinearGradientBrush x:Key="HeaderBorderBrush" >
+                <GradientStop Color="White" Offset="1"/>
+
+            </LinearGradientBrush>
+            <Style x:Key="HeaderStyle" TargetType= "{x:Type DataGridColumnHeader}">
+                <Setter Property="Background" Value="{StaticResource HeaderBrush}" />
+                <Setter Property="Foreground" Value="#FFDADADA" />
+                <Setter Property="BorderBrush" Value="{StaticResource HeaderBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="MinWidth" Value="0" />
+                <Setter Property="MinHeight" Value="50" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Style>
+
+            <Style TargetType="{x:Type DataGridCell}">
+                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
     <DockPanel>
-        <UniformGrid DockPanel.Dock="Bottom" Columns="2" Rows="1" Margin="15">
-            <Button Name="dodaj" Content="Dodaj posao" FontSize="35" Margin="0 0 15 0" Click="dodaj_Click"/>
-            <Button Name="potvrdi" Content="Sačuvaj" FontSize="35" Margin="15 0 0 0" Click="potvrdi_Click"/>
+        <UniformGrid Columns="2" Rows="1" Margin="0" Height="57" Background="Black" Width="792" DockPanel.Dock="Bottom">
+            <Button x:Name="dodaj" Style="{StaticResource MyButton}" Content="Dodaj posao" FontSize="30" Margin="91,4,32,3" Click="dodaj_Click" FontFamily="Arial" Height="50" Foreground="#FFDADADA">
+
+                <Button.Background>
+                    <LinearGradientBrush  EndPoint="0.5,1"  StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+
+                </Button.Background>
+            </Button>
+            <Button x:Name="potvrdi" Style="{StaticResource MyButton}" Content="Sačuvaj" FontSize="30" Margin="31,4,91,3" Click="potvrdi_Click" FontFamily="Arial" Height="50" Foreground="#FFDADADA">
+                <Button.Background>
+                    <LinearGradientBrush   EndPoint="0.5,1"  StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </UniformGrid>
-        <DataGrid Name="dgDP" FontSize="20" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" 
-                  CanUserAddRows="False" AutoGenerateColumns="False" ColumnWidth="*">
+        <DataGrid AlternatingRowBackground="LightGray" ColumnHeaderStyle="{StaticResource HeaderStyle}"  Name="dgDP" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" 
+                   CanUserAddRows="False" AutoGenerateColumns="False" ColumnWidth="*" SelectionChanged="dgDP_SelectionChanged" FontFamily="Arial" FontSize="30" DockPanel.Dock="Top" BorderBrush="#FFAEAEAE">
+           
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ime ulice" Binding="{Binding ulica}"/>
-                <DataGridTextColumn Header="Tip posla" Binding="{Binding tip}"/>
-                <DataGridTextColumn Header="Povrsina" Binding="{Binding povrsina}"/>
+                <DataGridTextColumn Header="Ime ulice" Binding="{Binding ulica}" FontFamily="Arial" FontSize="28" Width="300"/>
+                <DataGridTextColumn Header="Tip posla" Binding="{Binding tip}" FontFamily="Arial" FontSize="28"/>
+                <DataGridTextColumn Header="Povrsina" Binding="{Binding povrsina}" FontFamily="Arial" FontSize="28"/>
                 <DataGridCheckBoxColumn x:Name="CheckStiklirano" Binding="{Binding Stiklirano}">
                     <DataGridCheckBoxColumn.Header>
                         <CheckBox Name="chkSelectAll" Checked="chkSelectAll_Checked" 

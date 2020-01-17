@@ -162,13 +162,13 @@ namespace WPFCLEAN
                         dplan = "B";
                         break;
                     case "Wednesday":
-                        dplan = "C";
+                        dplan = "A";
                         break;
                     case "Thursday":
-                        dplan = "D";
+                        dplan = "C";
                         break;
                     case "Friday":
-                        dplan = "E";
+                        dplan = "D";
                         break;
                 }
                 foreach (MoguciPosao p in cnt.MoguciPosaos)

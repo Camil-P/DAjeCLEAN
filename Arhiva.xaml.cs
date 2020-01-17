@@ -244,5 +244,10 @@ namespace WPFCLEAN
                 printDlg.PrintVisual(dgArhiva, "First Fit to Page WPF Print");
             }
         }
+
+        private void dgArhiva_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

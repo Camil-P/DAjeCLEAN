@@ -5,27 +5,140 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCLEAN"
         mc:Ignorable="d"
-        Title="Arhiva" Height="450" Width="800">
+        Title="Arhiva" Height="450" Width="800" WindowStartupLocation="CenterScreen" FontFamily="Arial">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Hover.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <LinearGradientBrush x:Key="HeaderBrush"  EndPoint="0.5,1"  StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0.157"/>
+                <GradientStop Color="Black" Offset="0.852"/>
+                <GradientStop Color="#FF747474" Offset="0.505"/>
+            </LinearGradientBrush>
+
+
+            <LinearGradientBrush x:Key="HeaderBorderBrush" >
+                <GradientStop Color="White" Offset="1"/>
+
+            </LinearGradientBrush>
+            <Style x:Key="HeaderStyle" TargetType= "{x:Type DataGridColumnHeader}">
+                <Setter Property="Background" Value="{StaticResource HeaderBrush}" />
+                <Setter Property="Foreground" Value="#FFDADADA" />
+                <Setter Property="BorderBrush" Value="{StaticResource HeaderBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="MinWidth" Value="0" />
+                <Setter Property="MinHeight" Value="30" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Style>
+
+            <Style TargetType="{x:Type DataGridCell}">
+                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
     <DockPanel>
-        <UniformGrid Columns="6" Rows="1" DockPanel.Dock="Top">
-            <Button Content="Stampaj" Click="Button_Click"/>
-            <Label Content="Od: (mm/dd/gggg)"/>
-            <DatePicker Name="PocetnoVreme" SelectedDateChanged="PocetnoVreme_SelectedDateChanged" />
-            <Label Content="Do: (mm/dd/gggg)" />
-            <DatePicker Name="KrajnjeVreme" SelectedDateChanged="KrajnjeVreme_SelectedDateChanged"/>
-            <Button Content="Svi poslovi" Click="Button_Click_1"/>
-        </UniformGrid>
-        <DataGrid DockPanel.Dock="Top" Name="dgArhiva" CanUserAddRows ="False" FontSize ="25" 
-                            AutoGenerateColumns="False">
+
+        <DataGrid Name="dgArhiva" AlternatingRowBackground="LightGray" CanUserAddRows ="False" 
+                        ColumnHeaderStyle="{StaticResource HeaderStyle}"    AutoGenerateColumns="False" Background="#FFA6A6A6"  SelectionChanged="dgArhiva_SelectionChanged" FontFamily="Arial" BorderBrush="White" RenderTransformOrigin="0.514,0" DockPanel.Dock="Top" FontSize="30">
+
+           
+
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ime ulice" IsReadOnly="True" Binding ="{Binding ulicaIme}" Width="*"/>
-                <DataGridTextColumn Binding="{Binding tip}" Width="*">
+                <DataGridTextColumn Header="Ime ulice" IsReadOnly="True" Binding ="{Binding ulicaIme}" Width="*"  Foreground="Black" FontFamily="Arial" FontSize="30" />
+                <DataGridTextColumn Binding="{Binding tip}" Width="*"   Foreground="Black" FontFamily="Arial" FontSize="30" DisplayIndex="1">
                     <DataGridTextColumn.Header>
-                        <ComboBox Name="comboTip" HorizontalAlignment="Center" SelectionChanged="tip_SelectionChanged"/>
+                        <ComboBox Name="comboTip" SelectionChanged="tip_SelectionChanged"  Background="Black" BorderBrush="White" Foreground="White" Width="23" VerticalAlignment="Center" HorizontalAlignment="Center" IsSynchronizedWithCurrentItem="False" SelectedIndex="0">
+                            <ComboBox.Resources>
+                              
+                                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Black"/>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Red" />
+
+                            </ComboBox.Resources>
+                        </ComboBox>
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Vreme" IsReadOnly="True" Binding="{Binding vreme}" Width="*"/>
+                <DataGridTextColumn Header="Vreme" IsReadOnly="True" Binding="{Binding vreme}" Width="*" Foreground="Black" FontFamily="Arial" FontSize="30"/>
             </DataGrid.Columns>
         </DataGrid>
+        <UniformGrid Columns="6" Rows="1" DockPanel.Dock="Bottom" Height="48" VerticalAlignment="Bottom">
+            <Button Style="{StaticResource MyButton}" Content="Stampaj" Click="Button_Click" Foreground="#FFDADADA" FontFamily="Arial" FontSize="20" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Content="Od: (mm/dd/gggg)"  VerticalContentAlignment="Center"    FontFamily="Arial" FontSize="15" Foreground="#FFDADADA" BorderThickness="0" Margin="0" Cursor="Arrow">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+
+            </Label>
+            <DatePicker x:Name="PocetnoVreme" SelectedDateChanged="PocetnoVreme_SelectedDateChanged" VerticalContentAlignment="Center" FontFamily="Arial Narrow" FontSize="18" RenderTransformOrigin="0.611,1.037" BorderThickness="0" Foreground="#FF0C0C0C" >
+                <DatePicker.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </DatePicker.BorderBrush>
+                <DatePicker.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </DatePicker.Background>
+            </DatePicker>
+            <Label Content="Do: (mm/dd/gggg)" Foreground="#FFDADADA" VerticalContentAlignment="Center" FontFamily="Arial" FontSize="15" Height="48" VerticalAlignment="Bottom" >
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <DatePicker Name="KrajnjeVreme" SelectedDateChanged="KrajnjeVreme_SelectedDateChanged" VerticalContentAlignment="Center" FontFamily="Arial Narrow" FontSize="18" BorderThickness="0" >
+                <DatePicker.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </DatePicker.BorderBrush>
+                <DatePicker.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" >
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </DatePicker.Background>
+            </DatePicker>
+
+            <Button Style="{StaticResource MyButton}" Content="Svi poslovi" Click="Button_Click_1" Foreground="#FFDADADA" FontSize="20" BorderBrush="{x:Null}" FontFamily="Arial ">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.157"/>
+                        <GradientStop Color="Black" Offset="0.852"/>
+                        <GradientStop Color="#FF747474" Offset="0.505"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </UniformGrid>
     </DockPanel>
+
 </Window>

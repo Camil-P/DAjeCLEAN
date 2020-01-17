@@ -196,5 +196,10 @@ namespace WPFCLEAN
                 foreach(MoguciPosao bp in brzalista)
                     dnevniposlovi.Add(bp);
         }
+
+        private void dgDP_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

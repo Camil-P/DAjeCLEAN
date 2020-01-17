@@ -36,7 +36,7 @@ namespace WPFCLEAN
             {
                 tablaBtn.Visibility = Visibility.Hidden;
                 listaBtn.Visibility = Visibility.Hidden;
-                stampacBtn.Visibility = Visibility.Hidden;
+                
             }
             EFDataProvider.RefreshujPoslove();
             NapuniDnevno();
@@ -83,8 +83,8 @@ namespace WPFCLEAN
             imageControl.Stretch = Stretch.None;
             imageControl.Source = imgSource;
             Mapa.Children.Add(imageControl);
-            //    ControlPaint.DrawButton(e.Graphics.DrawImage(lokacija, x, y), Rectangle, ButtonState.Flat);
-            //  zaprljane.Children.Add(lokacija);
+          
+             
 
             MainWindow.privremeni = "Pranje";
             Lista ProzorListe = new Lista();
@@ -124,11 +124,11 @@ namespace WPFCLEAN
             foreach (MoguciPosao r in dnevniposloviKontejneri)
             {
                 ImageDrawing lokacija = new ImageDrawing();
-                double x = kordinataxy.Next(50, 820);
-                double y = kordinataxy.Next(50, 380);
+                double x = kordinataxy.Next(50, 790);
+                double y = kordinataxy.Next(50, 430);
                 lokacija.Rect = new Rect(x, y, 35, 35);
                 lokacija.ImageSource = new BitmapImage(
-               new Uri("../../Resursi/kontejneridirty.png", UriKind.Relative));
+               new Uri("../../Resursi/kontejnerdirty.png", UriKind.Relative));
                 zaprljane.Children.Add(lokacija);
             }
             DrawingImage imgSource = new DrawingImage(zaprljane);
@@ -137,6 +137,8 @@ namespace WPFCLEAN
             imageControl.Stretch = Stretch.None;
             imageControl.Source = imgSource;
             Mapa.Children.Add(imageControl);
+
+
 
             MainWindow.privremeni = "Kontejneri";
             Lista ProzorListe = new Lista();
@@ -180,10 +182,7 @@ namespace WPFCLEAN
                         {
                             if (p.planp == "F" && p.tip == "Pranje")
                                 dnevniposloviPranje.Add(p);
-                            else if (p.planp == "F" && p.tip == "Ciscenje")
-                                dnevniposloviCiscenje.Add(p);
-                            else if (p.planp == "F" && p.tip == "Kontejneri")
-                                dnevniposloviKontejneri.Add(p);
+                           
                         }
                         break;
                     }
@@ -210,12 +209,13 @@ namespace WPFCLEAN
                             dnevniposloviCiscenje.Add(p);
                         else if (p.planp == "C" && p.tip == "Kontejneri")
                             dnevniposloviKontejneri.Add(p);
+
                     }
                     break;
                 case "Friday":
                     foreach (MoguciPosao p in trposlovi)
                     {
-                        if (p.planp == "D" && p.tip == "Pranje")
+                        if (p.planp == "D" && p.tip == "Pranje") 
                             dnevniposloviPranje.Add(p);
                         else if (p.planp == "D" && p.tip == "Ciscenje")
                             dnevniposloviCiscenje.Add(p);

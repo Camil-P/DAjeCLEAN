@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCLEAN"
         mc:Ignorable="d"
-        Title="Login" Height="600" Width="500" Background="#04c582">
+        Title="Login" Height="600" Width="500" Background="#04c582" WindowStartupLocation="CenterScreen">
     <Border Background="DarkSlateGray" Height="500" Width="400" CornerRadius="15">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" 
                 VerticalAlignment="Center" MinWidth="300" MinHeight="400">
