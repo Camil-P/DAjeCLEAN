@@ -14,13 +14,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace WPFCLEAN
 {
     /// <summary>
     /// Interaction logic for Arhiva.xaml
     /// </summary>
-    public partial class Arhiva : Window
+    public partial class Arhiva : MetroWindow
     {
         ObservableCollection<ArhiviraniPosao> trlista = new ObservableCollection<ArhiviraniPosao>();
         ObservableCollection<ArhiviraniPosao> ListaArhiviranih = new ObservableCollection<ArhiviraniPosao>();

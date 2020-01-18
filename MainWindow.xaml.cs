@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Collections.ObjectModel;
+using MahApps.Metro.Controls;
 //using System.Windows.Forms;
 
 namespace WPFCLEAN
@@ -21,10 +22,11 @@ namespace WPFCLEAN
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public static string privremeni;
         static Random kordinataxy = new Random();
+       
 
         ObservableCollection<MoguciPosao> dnevniposloviPranje = new ObservableCollection<MoguciPosao>();
         ObservableCollection<MoguciPosao> dnevniposloviCiscenje = new ObservableCollection<MoguciPosao>();
