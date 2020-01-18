@@ -16,7 +16,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ime ulice" Binding="{Binding ulica}"/>
                 <DataGridTextColumn Header="Tip posla" Binding="{Binding tip}"/>
-                <DataGridTextColumn Header="Povrsina/Broj Kontejnera" Binding="{Binding povrsina}"/>
+                <DataGridTextColumn Header="Povrsina" Binding="{Binding povrsina}"/>
                 <DataGridCheckBoxColumn x:Name="CheckStiklirano" Binding="{Binding Stiklirano}">
                     <DataGridCheckBoxColumn.Header>
                         <CheckBox Name="chkSelectAll" Checked="chkSelectAll_Checked" 

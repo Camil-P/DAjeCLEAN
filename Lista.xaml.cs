@@ -53,16 +53,14 @@ namespace WPFCLEAN
                     }
                 }
             }
-            else if(MainWindow.privremeni == "Kontejneri")
+            else 
             {
-                for (int i = 0; i < dnevniposlovi.Count; i++)
-                {
-                    if (dnevniposlovi[i].tip != "Kontejneri")
+                for(int i = 0; i<dnevniposlovi.Count; i++)
+                    if(dnevniposlovi[i].tip != "Kontejneri")
                     {
                         dnevniposlovi.RemoveAt(i);
                         i -= 1;
                     }
-                }
             }
             dgDP.ItemsSource = dnevniposlovi;
         }
