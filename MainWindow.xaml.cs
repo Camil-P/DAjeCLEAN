@@ -59,7 +59,8 @@ namespace WPFCLEAN
         private void listaBtn_Click(object sender, RoutedEventArgs e)
         {
             Arhiva prozorArhive = new Arhiva();
-            prozorArhive.Visibility = Visibility.Visible;
+            prozorArhive.Owner = this;
+            prozorArhive.ShowDialog();
         }
 
      
@@ -99,7 +100,7 @@ namespace WPFCLEAN
             ProzorListe.Top = this.Top;
             ProzorListe.Left = this.Left - 100;
             ProzorListe.Owner = this;
-            ProzorListe.Visibility = Visibility.Visible;
+            ProzorListe.ShowDialog();
         }
 
         private void ciscenjeBtn_Click(object sender, RoutedEventArgs e)
@@ -128,7 +129,7 @@ namespace WPFCLEAN
             ProzorListe.Top = this.Top;
             ProzorListe.Left = this.Left - 100;
             ProzorListe.Owner = this;
-            ProzorListe.Visibility = Visibility.Visible;
+            ProzorListe.ShowDialog();
         }
 
         private void KontejneriBtn_Click(object sender, RoutedEventArgs e)
@@ -159,7 +160,7 @@ namespace WPFCLEAN
             ProzorListe.Top = this.Top;
             ProzorListe.Left = this.Left - 100;
             ProzorListe.Owner = this;
-            ProzorListe.Visibility = Visibility.Visible;
+            ProzorListe.ShowDialog();
         }
         private void NapuniDnevno()
         {
@@ -249,7 +250,8 @@ namespace WPFCLEAN
             MainWindow.privremeni = "Sve";
             Lista ProzorListe = new Lista();
             ProzorListe.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ProzorListe.Visibility = Visibility.Visible;
+            ProzorListe.Owner = this;
+            ProzorListe.ShowDialog();
         }
     }
 }

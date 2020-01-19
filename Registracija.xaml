@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WPFCLEAN"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="WPFCLEAN.Registracija"
         mc:Ignorable="d" GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen"
-        Title="Registracija" Height="450" Width="800">
+        Title="Registracija" Height="450" Width="800" Icon="droplet.png">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

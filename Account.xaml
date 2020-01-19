@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCLEAN"
         mc:Ignorable="d"  GlowBrush="{DynamicResource AccentColorBrush}"
-        Title="Nalozi" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Nalozi" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="droplet.png">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

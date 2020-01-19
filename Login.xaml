@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCLEAN"
         mc:Ignorable="d"  GlowBrush="{DynamicResource AccentColorBrush}"
-        Title="Login" Height="735" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="735" Width="500" WindowStartupLocation="CenterScreen" Icon="droplet.png">
 	<Controls:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -8,7 +8,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCLEAN"
         mc:Ignorable="d"
-        Title="Arhiva" Height="450" Width="850"   GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen" FontFamily="Arial">
+        Title="Arhiva" Height="450" Width="850"   GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen" FontFamily="Arial" Icon="droplet.png">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -73,7 +73,8 @@ namespace WPFCLEAN
                 if (provera == true)
                 {
                     MainWindow Glavniprozor = new MainWindow();
-                    Glavniprozor.Visibility = Visibility.Visible;
+                    Glavniprozor.Owner = this;
+                    Glavniprozor.ShowDialog();
                     this.Close();
                 }
                 else
