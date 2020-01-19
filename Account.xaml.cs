@@ -27,6 +27,7 @@ namespace WPFCLEAN
         {
             InitializeComponent();
             NapuniNaloge();
+            listaNaloga.RemoveAt(0);
             dgAcc.ItemsSource = listaNaloga;
             
         }
@@ -67,17 +68,16 @@ namespace WPFCLEAN
             {
                 Registracija prozorRegistracije = new Registracija();
                 prozorRegistracije.DataContext = dgAcc.SelectedItem;
-                prozorRegistracije.Visibility = Visibility.Visible;
+                prozorRegistracije.Owner = this;
+                prozorRegistracije.ShowDialog();
             }
         }
 
         private void dodajacc_Click(object sender, RoutedEventArgs e)
         {
             Registracija prozorDodavanja = new Registracija();
-            //  Nalog nalog = new Nalog();
-          //  ObservableCollection<Nalog> sekuriti = new ObservableCollection<Nalog>();
             prozorDodavanja.DataContext = listaNaloga;
-
+            prozorDodavanja.Owner = this;
             prozorDodavanja.Show();
             prozorDodavanja.txtusername.Clear();
             prozorDodavanja.txtsifra.Clear();

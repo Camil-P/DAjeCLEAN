@@ -66,7 +66,8 @@ namespace WPFCLEAN
         private void tablaBtn_Click(object sender, RoutedEventArgs e)
         {
             Account prozorAcc = new Account();
-            prozorAcc.Visibility = Visibility.Visible;
+            prozorAcc.Owner = this;
+            prozorAcc.ShowDialog();
         }
         
 

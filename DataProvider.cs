@@ -35,7 +35,8 @@ namespace WPFCLEAN
                 foreach (Nalog n in cnt.Nalogs)
                 {
                     if (n.username == nalog.username)
-                        provera = true;
+                        if(n.IDNaloga != nalog.IDNaloga)
+                            provera = true;
                 }
                 if (!provera)
                 {
