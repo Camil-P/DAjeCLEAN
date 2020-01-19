@@ -19,7 +19,7 @@ namespace WPFCLEAN
         public Nullable<double> povrsina { get; set; }
         public string planp { get; set; }
         public string tip { get; set; }
-        //public bool Stiklirano { get; set; }
+        //hh
         public int IDUlice { get; set; }
 
         private bool _stiklirano;
