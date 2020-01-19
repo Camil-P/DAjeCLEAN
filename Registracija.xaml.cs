@@ -41,7 +41,7 @@ namespace WPFCLEAN
             }
             else
             {
-                if (this.DataContext is ObservableCollection<Nalog> Osobeplus)
+                if (DataContext is ObservableCollection<Nalog> Osobeplus)
                 {
                     bool provera = false;
                     foreach (var osoba in Osobeplus)
@@ -65,7 +65,7 @@ namespace WPFCLEAN
                         MessageBox.Show("Korisničko ime je zazeto!");
                 }
                 
-                else if (this.DataContext is Nalog izmena)
+                else if (DataContext is Nalog izmena)
                 {
                     BindingOperations.GetBindingExpression(txtusername, TextBox.TextProperty).UpdateSource();
                     BindingOperations.GetBindingExpression(txtsifra, TextBox.TextProperty).UpdateSource();

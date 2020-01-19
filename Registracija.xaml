@@ -43,11 +43,11 @@
 
         <UniformGrid Columns="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,109,0,29" Width="580" Height="151">
             <Label Content="Korisničko ime:" FontSize="36" HorizontalAlignment="Right" Margin="30 0 0 0" FontFamily="Arial" Background="White"/>
-            <TextBox x:Name="txtusername" Text="{Binding username, UpdateSourceTrigger=Explicit}" FontSize="36" FontFamily="Arial"/>
+            <TextBox x:Name="txtusername" Text="{Binding username,UpdateSourceTrigger=Explicit}" FontSize="36" FontFamily="Arial"/>
             <Label Content="Šifra:" HorizontalAlignment="Right" FontSize="36" Margin="30 0 0 0" FontFamily="Arial" Background="White"/>
-            <TextBox x:Name="txtsifra" Text="{Binding password, UpdateSourceTrigger=Explicit}" FontSize="36" FontFamily="Arial"/>
+            <TextBox x:Name="txtsifra" Text="{Binding password,UpdateSourceTrigger=Explicit}" FontSize="36" FontFamily="Arial"/>
             <Label Content="Ime i Prezime:" FontSize="36" HorizontalAlignment="Right" Margin="30 0 0 0" FontFamily="Arial" Background="White"/>
-            <TextBox x:Name="txtimeprezime" Text="{Binding imePrezime, UpdateSourceTrigger=Explicit}" FontSize="36" FontFamily="Arial"/>
+            <TextBox x:Name="txtimeprezime" Text="{Binding imePrezime,UpdateSourceTrigger=Explicit}" FontSize="36" FontFamily="Arial"/>
         </UniformGrid>
     </DockPanel>
 </Controls:MetroWindow>

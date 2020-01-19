@@ -75,9 +75,13 @@ namespace WPFCLEAN
         {
             Registracija prozorDodavanja = new Registracija();
             //  Nalog nalog = new Nalog();
-            ObservableCollection<Nalog> sekuriti = new ObservableCollection<Nalog>();
-            prozorDodavanja.DataContext = sekuriti;
-            prozorDodavanja.Visibility = Visibility.Visible;
+          //  ObservableCollection<Nalog> sekuriti = new ObservableCollection<Nalog>();
+            prozorDodavanja.DataContext = listaNaloga;
+
+            prozorDodavanja.Show();
+            prozorDodavanja.txtusername.Clear();
+            prozorDodavanja.txtsifra.Clear();
+            prozorDodavanja.txtimeprezime.Clear();
         }
     }
 }
