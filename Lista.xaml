@@ -77,7 +77,7 @@
 			</Button>
 		</UniformGrid>
 		<DataGrid AlternatingRowBackground="#FFEDEDED" ColumnHeaderStyle="{StaticResource HeaderStyle}"  Name="dgDP" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" 
-				   CanUserAddRows="False" AutoGenerateColumns="False" ColumnWidth="*" SelectionChanged="dgDP_SelectionChanged" FontFamily="Arial" FontSize="26" DockPanel.Dock="Top" BorderBrush="#FFAEAEAE">
+				   CanUserAddRows="False" AutoGenerateColumns="False" ColumnWidth="*" FontFamily="Arial" FontSize="26" DockPanel.Dock="Top" BorderBrush="#FFAEAEAE">
 
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="Ime ulice" Binding="{Binding ulica}" FontFamily="Arial" FontSize="26" Width="300"/>
