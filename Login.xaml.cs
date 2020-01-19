@@ -101,9 +101,9 @@ namespace WPFCLEAN
                     bool provera = false;
                     foreach (var korisnik in osobe)
                     {
-                        if (korisnik.password == txtSifra.Password)
+                        if (korisnik.password == txtSifra.Password && korisnik.username  == cb.Text)
                         {
-                            if (cb.Text == "Bendza")
+                            if (cb.Text == "Dino")
                                 sef = true;
                             else
                                 sef = false;
