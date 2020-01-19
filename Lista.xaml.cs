@@ -78,7 +78,6 @@ namespace WPFCLEAN
                             dnevniposlovi.Add(p);
                     }
                     break;
-                case "Sunday":  //Treba da se skloni
                 case "Tuesday":
                     foreach (MoguciPosao p in trposlovi)
                     {
